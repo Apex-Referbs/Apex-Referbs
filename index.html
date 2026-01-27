@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apex Refurbs | Building, Agricultural, Steelwork & Groundworks</title>
+  <meta name="description" content="House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural chicken sheds. Professional workmanship, tidy sites, clear quotes.">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:"#f3f7ff",
+              100:"#e6efff",
+              600:"#245eea",
+              700:"#1e4fc4"
+            }
+          },
+          boxShadow: {
+            soft:"0 12px 30px rgba(15,23,42,0.10)",
+            card:"0 18px 55px rgba(15,23,42,0.10)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    .hover-card { transition: all .30s ease; cursor: pointer; }
+    .hover-card:hover { transform: translateY(-6px); box-shadow: 0 22px 60px rgba(36,94,234,0.18); border-color: #245eea !important; }
+    .service-card { background:#fff; border-radius:24px; border:1px solid #e2e8f0; box-shadow: 0 10px 24px rgba(15,23,42,0.08); overflow:hidden; }
+    .service-card .label { letter-spacing:.08em; font-weight:700; font-size:.72rem; color:#475569; text-transform: uppercase; }
+    .service-card h3 { font-weight: 800; color:#0f172a; font-size: 1.25rem; }
+    .service-card p { color:#475569; }
+    .heroWrap { position: relative; }
+    .heroBg {
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(36,94,234,.18), transparent 55%),
+        radial-gradient(800px 520px at 85% 15%, rgba(2,132,199,.10), transparent 55%),
+        linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.55));
+      pointer-events:none;
+    }
+  </style>
+<style id="hero-face-safe">
+/* Keep hero text out of the right side (face area) */
+@media (min-width: 1024px){
+  #hero h1, #hero h2 { max-width: 18ch !important; }
+  #hero p            { max-width: 55ch !important; }
+  #hero .btn, #hero a { max-width: 55ch !important; }
+
+  /* Add a right-side "no-go" zone so the block doesn't spread */
+  #hero { padding-right: 28vw !important; }
+}
+
+/* Mobile: normal */
+@media (max-width: 1023px){
+  #hero { padding-right: 0 !important; }
+}
+</style>
+<style id="apex-theme-polish">
+  :root{
+    --apex-blue: #2563eb;
+    --apex-blue-dark:#1d4ed8;
+    --apex-ink:#0f172a;
+  }
+
+  /* Buttons */
+  a[href="#quote"], .btn-primary{
+    background: var(--apex-blue) !important;
+    border-color: var(--apex-blue) !important;
+  }
+  a[href="#quote"]:hover, .btn-primary:hover{
+    background: var(--apex-blue-dark) !important;
+  }
+
+  /* Links + subtle blue feel */
+  a{ text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+  /* Cards hover polish */
+  .apex-card{
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .apex-card:hover{
+    transform: translateY(-3px);
+    border-color: rgba(37,99,235,.45);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.18), 0 18px 45px rgba(2,6,23,.12);
+  }
+
+  /* Blue hover ring */
+  .:hover{
+    box-shadow: 0 0 0 3px rgba(37,99,235,.55), 0 18px 45px rgba(2,6,23,.12) !important;
+  }
+</style>
+<style id="apex-soft-polish">
+  /* Subtle site tint */
+  body{
+    background: radial-gradient(1200px 700px at 20% 0%, rgba(59,130,246,0.08), transparent 60%),
+                radial-gradient(900px 600px at 85% 20%, rgba(14,165,233,0.06), transparent 55%),
+                linear-gradient(180deg, rgba(248,250,252,1), rgba(255,255,255,1));
+  }
+
+  /* Soft floating orbs */
+  .apex-orbs{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .apex-orb{
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 9999px;
+    filter: blur(60px);
+    opacity: .18;
+    animation: apexFloat 16s ease-in-out infinite;
+  }
+  .apex-orb.one{ left:-120px; top:-140px; background: rgba(59,130,246,1); }
+  .apex-orb.two{ right:-180px; top:120px; background: rgba(14,165,233,1); animation-duration: 19s; }
+  .apex-orb.three{ left:35%; bottom:-240px; background: rgba(99,102,241,1); animation-duration: 22s; }
+
+  @keyframes apexFloat{
+    0%,100%{ transform: translate3d(0,0,0) scale(1); }
+    50%{ transform: translate3d(40px, -30px, 0) scale(1.06); }
+  }
+
+  /* Ensure page content sits above orbs */
+  body > *{ position: relative; z-index: 1; }
+
+  /* Polished default card look */
+  .apex-card{
+    background: rgba(255,255,255,.92) !important;
+    border: 1px solid rgba(15,23,42,.10) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 10px 28px rgba(2,6,23,.06) !important;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+  }
+  .apex-card:hover{
+    transform: translateY(-2px) !important;
+    border-color: rgba(59,130,246,.20) !important;
+    box-shadow: 0 18px 44px rgba(2,6,23,.10) !important;
+  }
+
+  /* Kill loud blue blocks if any got applied */
+  .apex-card, .service-card{
+    color: #0f172a !important;
+  }
+</style>
+<style id="apex-full-bg-orbs">
+  /* Whole site background tint */
+  html, body{
+    height: 100%;
+    background:
+      radial-gradient(1100px 700px at 18% 0%, rgba(56,189,248,0.14), transparent 62%),
+      radial-gradient(900px 650px at 92% 18%, rgba(59,130,246,0.12), transparent 60%),
+      radial-gradient(900px 650px at 55% 105%, rgba(99,102,241,0.10), transparent 58%),
+      linear-gradient(180deg, #f7fbff 0%, #ffffff 55%, #f8fbff 100%) !important;
+    background-attachment: fixed !important;
+  }
+
+  /* Floating orbs layer */
+  .apex-bg-orbs{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .apex-bg-orbs .orb{
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 9999px;
+    filter: blur(70px);
+    opacity: 0.28;
+    transform: translate3d(0,0,0);
+    animation: apexOrbFloat 18s ease-in-out infinite;
+    mix-blend-mode: multiply;
+  }
+  .apex-bg-orbs .orb.one{
+    left: -180px; top: -220px;
+    background: rgba(56,189,248,1);
+  }
+  .apex-bg-orbs .orb.two{
+    right: -220px; top: 120px;
+    background: rgba(59,130,246,1);
+    animation-duration: 22s;
+  }
+  .apex-bg-orbs .orb.three{
+    left: 40%; bottom: -280px;
+    background: rgba(99,102,241,1);
+    animation-duration: 26s;
+  }
+
+  @keyframes apexOrbFloat{
+    0%,100%{ transform: translate3d(0,0,0) scale(1); }
+    50%{ transform: translate3d(60px,-40px,0) scale(1.08); }
+  }
+
+  /* Make sure site content stays above the orbs */
+  body{
+    position: relative;
+    z-index: 1;
+  }
+  .apex-bg-orbs{ z-index: 0; }
+
+  /* Prevent any section from force-setting a solid background that kills the tint */
+  section{
+    background-color: transparent !important;
+  }
+</style>
+<style id="apex-bg-orbs-working">
+  /* 1) TRUE page background layer */
+  .apex-bg-layer{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(1100px 700px at 18% 0%, rgba(56,189,248,0.18), transparent 62%),
+      radial-gradient(900px 650px at 92% 18%, rgba(59,130,246,0.14), transparent 60%),
+      radial-gradient(900px 650px at 55% 105%, rgba(99,102,241,0.12), transparent 58%),
+      linear-gradient(180deg, #f6fbff 0%, #ffffff 55%, #f7fbff 100%);
+  }
+
+  .apex-bg-layer .orb{
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    border-radius: 9999px;
+    filter: blur(80px);
+    opacity: 0.22;
+    animation: apexFloat 18s ease-in-out infinite;
+    mix-blend-mode: multiply;
+  }
+  .apex-bg-layer .orb.one{ left:-220px; top:-240px; background: rgba(56,189,248,1); }
+  .apex-bg-layer .orb.two{ right:-260px; top:120px; background: rgba(59,130,246,1); animation-duration: 22s; }
+  .apex-bg-layer .orb.three{ left:38%; bottom:-320px; background: rgba(99,102,241,1); animation-duration: 26s; }
+
+  @keyframes apexFloat{
+    0%,100%{ transform: translate3d(0,0,0) scale(1); }
+    50%{ transform: translate3d(70px,-45px,0) scale(1.08); }
+  }
+
+  /* 2) Put ALL site content above the background layer */
+  body{ position: relative; z-index: 1; background: transparent !important; }
+
+  /* 3) IMPORTANT: remove big white section paints so tint is visible */
+  section{ background: transparent !important; }
+  [class*="bg-white"]:where(section),
+  [class*="bg-slate-50"]:where(section),
+  [class*="bg-slate-100"]:where(section){
+    background: transparent !important;
+  }
+
+  /* 4) Keep cards looking clean (white), so it still reads professional */
+  .apex-card, .service-card,
+  .rounded-2xl, .rounded-3xl,
+  .shadow-xl, .shadow-2xl{
+    background-color: rgba(255,255,255,0.92) !important;
+    border-color: rgba(15,23,42,.10) !important;
+  }
+</style>
+<style id="apex-float-contact-style">
+  .apex-float{ position: fixed; right: 16px; bottom: 16px; z-index: 60; display:flex; flex-direction:column; gap:10px; }
+  .apex-float a{
+    display:flex; align-items:center; justify-content:center;
+    height: 46px; padding: 0 14px;
+    border-radius: 14px;
+    font-weight: 900;
+    text-decoration:none;
+    border: 1px solid rgba(15,23,42,.12);
+    box-shadow: 0 14px 32px rgba(2,6,23,.14);
+  }
+  .apex-float .call{ background: rgba(255,255,255,.92); color:#0f172a; }
+  .apex-float .wa{ background: #22c55e; color: white; border-color: rgba(34,197,94,.40); }
+  @media (min-width: 900px){ .apex-float{ right: 22px; bottom: 22px; } }
+</style>
+
+<style id="greg-section-css">
+  #about-greg .greg-portrait{
+    width: 580px;
+    height: 580px;
+    border-radius: 9999px;
+    object-fit: cover;
+    /* RIGHT then DOWN */
+    object-position: 62% 28%;
+    border: 12px solid rgba(255,255,255,.96);
+    box-shadow: 0 30px 90px rgba(2,6,23,.25);
+    background: #fff;
+  }
+
+  #about-greg .meet-greg-label{
+    margin-top: 22px;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+</style>
+
+<style id="greg-portrait-fix">
+  /* Only affects the Meet Greg circular portrait */
+  #about-greg img.greg-portrait{
+  object-fit: cover !important;
+
+  /* move face slightly right + down */
+  object-position: 64% 22% !important;
+
+  /* zoom OUT more so full head fits */
+  transform: scale(0.78) !important;
+  transform-origin: 64% 22% !important;
+}
+</style>
+
+<style id="greg-portrait-force">
+  /* Force portrait circle behaviour using a background image (more control than <img>) */
+  #about-greg .greg-portrait-wrap{
+    width: 420px;              /* BIGGER circle */
+    height: 420px;
+    border-radius: 9999px;
+    border: 10px solid #fff;
+    box-shadow: 0 22px 60px rgba(2,6,23,.18);
+    overflow: hidden;
+    margin: 0 auto 18px auto;
+    background: #fff;
+  }
+  #about-greg .greg-portrait-bg{
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+
+    /* HERE IS THE IMPORTANT BIT */
+    background-image: url("assets/img/team/greg.jpg");
+    background-repeat: no-repeat;
+
+    /* Zoom OUT more so full head fits */
+    background-size: 110%;
+
+    /* Move image slightly right + down */
+    background-position: 56% 18%;
+  }
+
+  /* Make MEET GREG easier to read */
+  #about-greg .meet-greg-kicker{
+    font-weight: 900 !important;
+    font-size: 14px !important;
+    letter-spacing: .22em !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Smaller circle on mobiles */
+  @media (max-width: 640px){
+    #about-greg .greg-portrait-wrap{ width: 320px; height: 320px; }
+  }
+</style>
+<!-- APEX_UI_GLOW_V1 -->
+<style id="apex-ui-glow-v1">
+  /* Greg soft highlight */
+  #about-greg{ position: relative; }
+  #about-greg::before{
+    content:"";
+    position:absolute;
+    inset:-60px;
+    background: radial-gradient(400px 300px at 50% 20%, rgba(59,130,246,0.18), transparent 60%);
+    z-index:0;
+    pointer-events:none;
+  }
+  #about-greg > *{ position: relative; z-index:1; }
+
+  /* Greg portrait glow */
+  #about-greg img{
+    box-shadow:
+      0 0 0 6px rgba(255,255,255,0.95),
+      0 18px 60px rgba(59,130,246,0.45);
+  }
+
+  /* Testimonial emphasis */
+  #gallery .t-card{ position: relative; }
+  #gallery .t-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius: 20px;
+    box-shadow: 0 0 0 0 rgba(59,130,246,0.0);
+    transition: box-shadow .25s ease;
+    pointer-events:none;
+  }
+  #gallery .t-card:hover::after{
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.18);
+  }
+
+  /* Tiny headline polish */
+  #gallery h2,
+  #about-greg h2{
+    text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+  }
+</style>
+<!-- /APEX_UI_GLOW_V1 -->
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+<div id="apex-float-contact" class="apex-float" aria-label="Quick contact">
+  <a class="call" href="tel:01743623392" title="Call us">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+               19.86 19.86 0 0 1-8.63-3.07
+               19.5 19.5 0 0 1-6-6
+               19.86 19.86 0 0 1-3.07-8.67
+               A2 2 0 0 1 4.11 2h3
+               a2 2 0 0 1 2 1.72
+               c.12.81.3 1.6.54 2.36
+               a2 2 0 0 1-.45 2.11L8.09 9.91
+               a16 16 0 0 0 6 6l1.72-1.11
+               a2 2 0 0 1 2.11-.45
+               c.76.24 1.55.42 2.36.54
+               a2 2 0 0 1 1.72 2z"/>
+    </svg>
+  </a>
+
+  <a class="wa" href="https://wa.me/447834555580" title="WhatsApp us" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" fill="currentColor">
+      <path d="M19.11 17.26c-.29-.14-1.72-.85-1.99-.95
+               -.27-.1-.47-.14-.66.14
+               -.19.29-.76.95-.93 1.14
+               -.17.19-.34.21-.63.07
+               -.29-.14-1.21-.44-2.31-1.41
+               -.86-.76-1.44-1.7-1.61-1.99
+               -.17-.29-.02-.45.13-.6
+               .13-.13.29-.34.43-.51
+               .14-.17.19-.29.29-.48
+               .1-.19.05-.36-.02-.5
+               -.07-.14-.66-1.59-.91-2.18
+               -.24-.58-.48-.5-.66-.51h-.56
+               c-.19 0-.5.07-.76.36
+               -.26.29-.99.97-.99 2.37
+               0 1.4 1.02 2.75 1.16 2.94
+               .14.19 2.01 3.07 4.87 4.3
+               .68.29 1.21.46 1.62.59
+               .68.22 1.3.19 1.79.12
+               .55-.08 1.72-.7 1.96-1.38
+               .24-.68.24-1.26.17-1.38
+               -.07-.12-.27-.19-.56-.33z"/>
+      <path d="M16 3C9.38 3 4 8.38 4 15
+               c0 2.65.87 5.1 2.34 7.07L4 29l7.13-2.28
+               A11.9 11.9 0 0 0 16 27
+               c6.62 0 12-5.38 12-12
+               S22.62 3 16 3z"/>
+    </svg>
+  </a>
+</div>
+<div class="apex-bg-layer" aria-hidden="true">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+</div>
+<div class="apex-bg-orbs" aria-hidden="true">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+</div>
+<div class="apex-orbs" aria-hidden="true">
+  <div class="apex-orb one"></div>
+  <div class="apex-orb two"></div>
+  <div class="apex-orb three"></div>
+</div>
+
+<header class="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <div class="h-9 w-9 rounded-xl bg-brand-600/10 border border-brand-100 flex items-center justify-center">
+        <div class="h-4 w-4 rounded-full bg-brand-600"></div>
+      </div>
+      <div class="leading-tight">
+        <div class="font-extrabold text-slate-900">Apex Refurbs</div>
+        <div class="hidden md:block text-xs text-slate-500">Building, steelwork, agricultural & groundworks</div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <a href="#services" class="hidden md:inline-flex text-sm text-slate-600 hover:text-slate-900">Services</a>
+      <a href="#gallery" class="hidden md:inline-flex text-sm text-slate-600 hover:text-slate-900">Gallery</a>
+      <a href="#quote" class="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-soft">
+        Get a quote
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-16">
+
+  <!-- HERO -->
+  <section class="bg-white">
+  <div class="w-full h-[520px] md:h-[620px] overflow-hidden">
+    <img src="assets/img/hero/apex-hero.jpg"
+         alt="Apex Refurbs team"
+         class="w-full h-full object-cover object-[60%_35%] object-center">
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 py-14">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700">
+        Tidy sites • Clear timelines • Quality finish
+      </div>
+
+      <h1 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+        Professional building work done properly
+      </h1>
+
+      <p class="mt-5 text-lg text-slate-600">
+        House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural builds.
+        Clear communication and a finish you can be proud of.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-white px-7 py-4 text-white font-semibold hover:bg-white transition">
+          Get a free quote
+        </a>
+        <a href="#services" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-4 text-slate-900 font-semibold hover:bg-slate-50 transition">
+          View services
+        </a>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3 text-sm text-slate-700">
+        <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Fully insured</span>
+        <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Domestic and commercial</span>
+        <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Agricultural builds</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20">
+  <style id="services-uniform-v2">
+    /* Subtle background tint behind the whole Services area */
+    #services{
+      background: radial-gradient(900px 420px at 10% 0%, rgba(59,130,246,.10), transparent 60%),
+                  radial-gradient(900px 420px at 90% 20%, rgba(147,197,253,.10), transparent 55%),
+                  transparent;
+    }
+
+    #services .svc-grid{
+      display:grid;
+      gap:24px;
+    }
+    @media (min-width: 1024px){
+      #services .svc-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    #services .svc-card{
+      display:flex;
+      flex-direction:column;
+      border-radius: 24px;
+      overflow:hidden;
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 14px 38px rgba(2,6,23,.10);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      min-height: 430px; /* keeps all equal height */
+      text-decoration:none;
+      color:#0f172a;
+    }
+    #services .svc-card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(59,130,246,.28);
+      box-shadow: 0 26px 64px rgba(2,6,23,.14);
+    }
+    #services .svc-img{
+      width:100%;
+      height: 220px;
+      object-fit: cover;
+      display:block;
+    }
+
+    /* Lighter blue panel (NOT the dark blue blocks) */
+    #services .svc-body{
+  padding: 16px 18px 18px;
+  background: rgba(255,255,255,.94);
+  border-top: 1px solid rgba(15,23,42,.08);
+  flex: 1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+    #services .svc-kicker{
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: rgba(15,23,42,.55);
+    }
+    #services .svc-title{
+  margin-top: 8px;
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 900;
+  color:#0f172a;
+}
+    #services .svc-desc{
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(15,23,42,.72);
+  max-width: 48ch;
+}
+  </style>
+
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="flex items-end justify-between gap-6">
+      <div>
+        <h2 class="text-4xl font-extrabold tracking-tight text-slate-900">Services</h2>
+        <p class="mt-3 text-lg text-slate-600 max-w-2xl">
+          Quality workmanship, tidy sites, and clear timelines across domestic, commercial, and agricultural projects.
+        </p>
+      </div>
+      <a href="#quote" class="inline-flex items-center justify-center rounded-xl px-6 py-3 text-white font-semibold"
+         style="background:#3b82f6">Get a quote</a>
+    </div>
+
+    <div class="mt-10 svc-grid">
+
+      
+<a href="#quote" class="svc-card">
+        <img class="svc-img" src="assets/img/services/svc_groundworks.jpg" alt="Groundworks and outdoor works">
+        <div class="svc-body">
+          <div class="svc-kicker">Groundworks</div>
+          <div class="svc-title">Groundworks and outdoor works</div>
+          <div class="svc-desc">Drainage, prep, access and site works completed neatly and to spec.</div>
+        </div>
+      </a>
+
+      <a href="#quote" class="svc-card">
+        <img class="svc-img" src="assets/img/services/svc_roofing.jpg" alt="Roofing and repairs">
+        <div class="svc-body">
+          <div class="svc-kicker">Roofing</div>
+          <div class="svc-title">Roofing and repairs</div>
+          <div class="svc-desc">Tiling, repairs and ridge work finished properly, with a clean final look.</div>
+        </div>
+      </a>
+
+      <a href="#quote" class="svc-card">
+        <img class="svc-img" src="assets/img/services/svc_electrician.jpg" alt="Electrical work">
+        <div class="svc-body">
+          <div class="svc-kicker">Electrical</div>
+          <div class="svc-title">Electrician</div>
+          <div class="svc-desc">Safe, tidy installs and upgrades completed with care and clear communication.</div>
+        </div>
+      </a>
+
+      <a href="#quote" class="svc-card">
+        <img class="svc-img" src="assets/img/services/svc_bricklaying.jpg" alt="Brickwork">
+        <div class="svc-body">
+          <div class="svc-kicker">Masonry</div>
+          <div class="svc-title">Brickwork</div>
+          <div class="svc-desc">New walls, repairs and tidy pointing with straight lines and clean finishes.</div>
+        </div>
+      </a>
+
+      <a href="#quote" class="svc-card">
+        <img class="svc-img" src="assets/img/services/svc_plastering.jpg" alt="Plastering and finishing">
+        <div class="svc-body">
+          <div class="svc-kicker">Finishing</div>
+          <div class="svc-title">Plastering and finishing</div>
+          <div class="svc-desc">Smooth walls, sharp lines and proper prep for a professional finish.</div>
+        </div>
+      </a>
+
+      <a href="#quote" class="svc-card">
+        <img class="svc-img" src="assets/img/services/svc_building.jpg" alt="House builds and general building">
+        <div class="svc-body">
+          <div class="svc-kicker">Building</div>
+          <div class="svc-title">House builds and general building</div>
+          <div class="svc-desc">Reliable structural and refurb work, delivered to a high standard.</div>
+        </div>
+      </a>
+
+          <a href="#quote" class="svc-card">
+        <img class="svc-img" src="assets/img/services/svc_kitchen.jpg" alt="Kitchen fitting and installation">
+        <div class="svc-body">
+          <div class="svc-kicker">Kitchens</div>
+          <div class="svc-title">Kitchen fitting and installation</div>
+          <div class="svc-desc">Full fitting and installation. Cabinets, worktops and finishing, done neatly and properly.</div>
+        </div>
+      </a>
+      <a href="#quote" class="svc-card">
+        <img class="svc-img" src="assets/img/services/svc_bathroom.jpg" alt="Bathroom fitting and tiling">
+        <div class="svc-body">
+          <div class="svc-kicker">Bathrooms</div>
+          <div class="svc-title">Bathroom fitting and tiling</div>
+          <div class="svc-desc">Full bathroom fitting with professional tiling and a clean, watertight finish.</div>
+        </div>
+      </a>
+      <a href="#quote" class="svc-card">
+        <img class="svc-img" src="assets/img/services/svc_steel_agri.jpg" alt="Steel erection and agricultural sheds">
+        <div class="svc-body">
+          <div class="svc-kicker">Steel & Agricultural</div>
+          <div class="svc-title">Steel erection and agricultural sheds</div>
+          <div class="svc-desc">Frames, fixings and farm buildings installed safely, accurately and on schedule.</div>
+        </div>
+      </a>
+</div>
+  </div>
+</section>
+
+<style>
+.service-card{
+  background:#fff;
+  padding:1.25rem 1.5rem;
+  border-radius:1rem;
+  border:1px solid #e5e7eb;
+  font-weight:700;
+  transition:.25s;
+}
+.service-card:hover{
+  box-shadow:0 0 0 3px #2563eb,0 20px 40px rgba(37,99,235,.35);
+  transform:translateY(-4px);
+}
+.gallery-frame{
+  position:relative;
+  height:420px;
+  border-radius:1.5rem;
+  overflow:hidden;
+}
+.gallery-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1.2s ease, transform 1.2s ease;
+}
+.gallery-slide.active{
+  opacity:1;
+  transform:scale(1.05);
+}
+</style>
+
+<script>
+let slides = document.querySelectorAll('.gallery-slide');
+let index = 0;
+slides[0].classList.add('active');
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 4000);
+</script>
+
+<style>
+  .service-card {
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #e5e7eb;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .service-card:hover {
+    box-shadow: 0 0 0 3px #2563eb, 0 15px 30px rgba(37,99,235,0.25);
+    transform: translateY(-4px);
+  }
+</style>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-16">
+  <div class="mx-auto max-w-6xl px-4">
+    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">What customers say</h2>
+    <p class="mt-3 text-base md:text-lg text-slate-600 max-w-3xl">
+      We keep it simple. Turn up on time, keep the site tidy, communicate clearly, and deliver a proper finish.
+      Here are a few recent comments from customers.
+    </p>
+
+    <style>
+      #gallery .t-grid{ display:grid; gap:18px; margin-top: 26px; }
+      @media (min-width: 768px){ #gallery .t-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap:20px; } }
+      @media (min-width: 1024px){ #gallery .t-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:22px; } }
+
+      #gallery .t-card{
+        border-radius: 20px;
+        border: 1px solid rgba(15,23,42,.10);
+        background: rgba(255,255,255,.92);
+        box-shadow: 0 14px 38px rgba(2,6,23,.10);
+        padding: 22px;
+        transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      }
+      #gallery .t-card:hover{
+        transform: translateY(-3px);
+        border-color: rgba(36,94,234,.22);
+        box-shadow: 0 26px 64px rgba(2,6,23,.14);
+      }
+
+      #gallery .t-top{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+      #gallery .t-stars{ color:#d4af37; letter-spacing:2px; font-weight:900; font-size:14px; white-space:nowrap; }
+      #gallery .t-tag{
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: rgba(15,23,42,.60);
+        border: 1px solid rgba(15,23,42,.10);
+        background: rgba(255,255,255,.75);
+        padding: 6px 10px;
+        border-radius: 999px;
+        white-space:nowrap;
+      }
+
+      #gallery .t-quote{ margin-top: 12px; font-size: 15px; line-height: 1.75; color: rgba(15,23,42,.78); }
+      #gallery .t-name{ margin-top: 14px; font-weight: 900; color:#0f172a; }
+      #gallery .t-meta{ margin-top: 2px; font-size: 13px; color: rgba(15,23,42,.55); }
+
+      #gallery .t-actions{ margin-top: 22px; display:flex; justify-content:center; }
+      #gallery .t-btn{
+        border: 1px solid rgba(15,23,42,.12);
+        background: rgba(255,255,255,.92);
+        padding: 12px 16px;
+        border-radius: 14px;
+        font-weight: 900;
+        color:#0f172a;
+      }
+      #gallery .t-btn:hover{
+        box-shadow: 0 0 0 3px rgba(36,94,234,.18);
+        border-color: rgba(36,94,234,.22);
+      }
+    </style>
+
+    <div class="t-grid" id="reviewsGrid">
+
+      <div class="t-card">
+        <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Extensions</div></div>
+        <div class="t-quote">Clear quote, turned up when promised, and the finish is spot on. Site was kept tidy every day.</div>
+        <div class="t-name">Sarah J</div><div class="t-meta">House extension</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Plastering</div></div>
+        <div class="t-quote">Walls are perfectly smooth with sharp lines. Proper preparation and a very professional finish.</div>
+        <div class="t-name">Helen R</div><div class="t-meta">Plastering and finishing</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Building</div></div>
+        <div class="t-quote">Reliable and organised. Kept us updated throughout and delivered exactly what was agreed.</div>
+        <div class="t-name">James W</div><div class="t-meta">General building</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Groundworks</div></div>
+        <div class="t-quote">Neat, efficient work with good communication. Everything left clean and the job was finished properly.</div>
+        <div class="t-name">Mark T</div><div class="t-meta">Groundworks and drainage</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Concrete</div></div>
+        <div class="t-quote">Solid base work and a clean finish. Turned up on time and cracked on without any fuss.</div>
+        <div class="t-name">Luke D</div><div class="t-meta">Bases and slabs</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Steelwork</div></div>
+        <div class="t-quote">Professional approach on site and safety was taken seriously. Frame went up cleanly and on schedule.</div>
+        <div class="t-name">Tom S</div><div class="t-meta">Steel erection</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Roofing</div></div>
+        <div class="t-quote">Roof repairs were sorted quickly and properly. Everything left neat and watertight.</div>
+        <div class="t-name">Paul M</div><div class="t-meta">Roofing and repairs</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Electrical</div></div>
+        <div class="t-quote">Tidy installs and explained everything clearly. Works were completed neatly and tested properly.</div>
+        <div class="t-name">Emma L</div><div class="t-meta">Electrical work</div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Kitchens</div></div>
+        <div class="t-quote">Kitchen fitting was done to a high standard with great attention to detail. Looks brilliant.</div>
+        <div class="t-name">Donna P</div><div class="t-meta">Kitchen fitting</div>
+      </div>
+
+    </div>
+
+    <div class="t-actions">
+      <button type="button" class="t-btn" id="loadMoreReviews">
+        Get a free no obligation quote or ask us a question
+      </button>
+    </div>
+
+    <script>
+      (function(){
+        const btn = document.getElementById('loadMoreReviews');
+        if(!btn) return;
+        btn.addEventListener('click', function(){
+          const q = document.getElementById('quote');
+          if(q) q.scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      })();
+    </script>
+
+  </div>
+</section>
+
+  <!-- QUOTE -->
+  <!-- <div class="meet-greg-label">Meet Greg</div> -->
+  <section id="about-greg" class="py-16">
+    <div class="mx-auto max-w-5xl px-4">
+      <div class="greg-wrap px-7 py-12 md:px-12 md:py-14 text-center">
+        <div class="flex justify-center">
+          <div class="greg-portrait-wrap">
+  <div class="greg-portrait-bg" role="img" aria-label="Greg"></div>
+</div>
+        </div>
+
+        <div class="mt-7 text-xs font-extrabold uppercase text-slate-500 greg-kicker"><div class="meet-greg-kicker">MEET GREG</div></div>
+        <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+          The person you’ll be speaking to
+        </h2>
+
+        <p class="mt-4 text-slate-600 text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
+          Greg runs Apex Refurbs & Construction and oversees your job from the first chat and site visit through to completion.
+          Clear communication, tidy sites, and work finished properly.
+        </p>
+
+        <div class="mt-8">
+          <div class="text-sm font-extrabold text-slate-900">Areas we cover</div>
+          <div class="mt-4 flex flex-wrap justify-center gap-2 text-sm text-slate-700">
+            <span class="area-chip rounded-full px-4 py-2">Shrewsbury</span>
+            <span class="area-chip rounded-full px-4 py-2">All of Shropshire</span>
+            <span class="area-chip rounded-full px-4 py-2">Telford & Wrekin</span>
+            <span class="area-chip rounded-full px-4 py-2">West Midlands</span>
+            <span class="area-chip rounded-full px-4 py-2">Mid Wales</span>
+          </div>
+          <div class="mt-3 text-sm text-slate-500">Send your postcode if you want us to confirm.</div>
+        </div>
+
+        <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="tel:01743623392"
+             class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 font-extrabold px-7 py-3">
+            Call 01743 623392
+          </a>
+
+          <a href="https://wa.me/447834555580" target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center rounded-xl bg-[#22c55e] hover:bg-[#16a34a] text-white font-extrabold px-7 py-3">
+            WhatsApp 07834 555580
+          </a>
+
+          <a href="#quote"
+             class="inline-flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold px-7 py-3">
+            Get a free quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /<div class="meet-greg-label">Meet Greg</div> -->
+<section id="quote" class="py-14 bg-slate-50">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight">Get a quote</h2>
+      <p class="mt-3 text-base text-slate-600 max-w-2xl mx-auto">
+        Tell us what you need and we will come back with a clear price and availability.
+      </p>
+
+      <div class="mt-12 bg-white rounded-[32px] border border-slate-200 p-10 text-left shadow-[0_30px_80px_rgba(36,94,234,0.18)] hover:shadow-[0_40px_100px_rgba(36,94,234,0.22)] transition-all duration-300">
+        <form action="https://formspree.io/f/mblnzwpv" method="POST" class="space-y-4 text-sm">
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <label class="block text-slate-700 font-medium">
+              Name
+              <input type="text" name="name" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+            </label>
+
+            <label class="block text-slate-700 font-medium">
+              Phone
+              <input type="tel" name="phone" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+            </label>
+          </div>
+
+          <label class="block text-slate-700 font-medium">
+            Email
+            <input type="email" name="email" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+          </label>
+
+          <label class="block text-slate-700 font-medium">
+            Postcode
+            <input type="text" name="postcode" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+          </label>
+
+          <label class="block text-slate-700 font-medium">
+            Service needed
+            <select name="service" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+              <option value="">Please select</option>
+              <option>Chicken sheds and agricultural builds</option>
+              <option>Steel erection and frames</option>
+              <option>Concrete bases and slabs</option>
+              <option>House extensions and conservatories</option>
+              <option>House builds and renovations</option>
+              <option>Plastering and finishing</option>
+              <option>Electrical work</option>
+              <option>Groundworks and drainage</option>
+              <option>Bricklaying and general building</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label class="block text-slate-700 font-medium">
+            What needs doing
+            <textarea name="message" rows="5" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required></textarea>
+          </label>
+
+          <button type="submit" class="w-full rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-3 font-semibold shadow-soft text-base">
+            Send request
+          </button>
+
+          <p class="text-xs text-slate-500 text-center">
+            Your details are only used to respond to your enquiry.
+          </p>
+
+          <input type="hidden" name="_subject" value="New building enquiry">
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 bg-slate-900 text-slate-300 text-sm">
+    <div class="mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between gap-3">
+      <div>
+        <div class="font-semibold text-white">Apex Refurbs</div>
+        <div class="text-xs text-slate-400">Building, agricultural, steelwork and groundworks</div>
+      </div>
+      <div class="text-xs text-slate-400">© <span id="year"></span> All rights reserved.</div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
