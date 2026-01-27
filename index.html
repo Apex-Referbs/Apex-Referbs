@@ -421,32 +421,36 @@
   }
 </style>
 <style id="apex-mobile-hero-fix">
-  /* Hero container class (only the hero uses this) */
+  /* Hero container */
   .hero-image{
     width: 100%;
     overflow: hidden;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 18px;
+    border: 1px solid rgba(15,23,42,.08);
+    box-shadow: 0 14px 38px rgba(2,6,23,.10);
+    background: #eaf2fb;
   }
   .hero-image img{
     width: 100%;
     height: 100%;
     display: block;
+    object-fit: cover;
+    object-position: 60% 26%; /* show more above the van + keep bodies */
   }
 
-  /* Mobile: show full image (no head chopping), reduce height */
+  /* Mobile: same width as site content, tidy height */
   @media (max-width: 768px){
-    .hero-image{ height: 260px !important; background: #eaf2fb; }
-    .hero-image img{ object-fit: contain !important; object-position: center center !important; }
+    .hero-image{ height: 320px !important; }
+    .hero-image img{ object-position: 60% 24% !important; }
   }
 
-  /* Desktop: keep punchy hero */
+  /* Desktop: slightly taller so we get more top + bottom */
   @media (min-width: 769px){
-    .hero-image{ height: 520px; }
-    .hero-image img{ object-fit: cover; object-position: center center; }
+    .hero-image{ height: 620px; }
+    .hero-image img{ object-position: 60% 26%; }
   }
 
-  /* Make hero text area look centred and tidy on mobile */
+  /* Centre hero text area on mobile */
   @media (max-width: 768px){
     #heroWrap, #hero, section#hero, section[aria-label="Hero"]{
       text-align: center !important;
@@ -466,6 +470,34 @@
     object-fit: cover !important;
     object-position: center center !important;
   }
+</style>
+<style id="apex-mobile-lock">
+  html, body { overflow-x: hidden; }
+  img { max-width: 100%; height: auto; }
+  @media (max-width: 640px) {
+    .apex-hero-h { height: 320px !important; }
+  }
+</style>
+<style>
+/* === HERO_CROP_FORCE_V1 === */
+img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], img[src*="apex-hero.png"]{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50% 42% !important; /* 20% more bottom vs ~22% */
+  display: block !important;
+}
+/* If your hero wrapper exists, keep it tidy and consistent */
+#hero, section#hero{
+  overflow: hidden;
+}
+@media (max-width: 640px){
+  /* Make hero behave like the services width (no weird over-wide image) */
+  #hero img, section#hero img{
+    max-width: 100% !important;
+  }
+}
+/* === END HERO_CROP_FORCE_V1 === */
 </style>
 </head>
 
@@ -562,9 +594,9 @@
   <!-- HERO -->
   <section class="bg-white">
   <div class="hero-image">
-  <img src="assets/img/apex-hero.jpg"
+  <div class="hero-img-wrap"><img src="assets/img/apex-hero.jpg"
          alt="Apex Refurbs team"
-         class="w-full h-full object-cover object-[60%_35%] object-center">
+         class="w-full h-full object-cover  object-center hero-img" id="heroImg"</div>
 </div>
 
   <div class="mx-auto max-w-6xl px-4 py-14">
@@ -1114,6 +1146,14 @@ setInterval(() => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 
