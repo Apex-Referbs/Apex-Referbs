@@ -408,6 +408,18 @@
   }
 </style>
 <!-- /APEX_UI_GLOW_V1 -->
+<style id="apex-hero-mobile-fix">
+  /* Mobile hero: reduce height and keep face/subject visible */
+  @media (max-width: 767px){
+    #heroHeroImgWrap{ height: 280px !important; }
+    #heroHeroImg{ object-position: 50% 30% !important; } /* move focal point down a touch */
+    #hero .btnRow{ gap: 10px !important; }
+    #hero .btnRow a{ width: 100% !important; justify-content: center !important; }
+  }
+  @media (min-width: 768px){
+    #heroHeroImgWrap{ height: 520px !important; }
+  }
+</style>
 </head>
 
 <body class="bg-slate-50 text-slate-800">
@@ -523,7 +535,7 @@
         Clear communication and a finish you can be proud of.
       </p>
 
-      <div class="mt-8 flex flex-wrap gap-4">
+      <div class="mt-8 flex flex-wrap gap-4 btnRow">
         <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-white px-7 py-4 text-white font-semibold hover:bg-white transition">
           Get a free quote
         </a>
@@ -1055,6 +1067,7 @@ setInterval(() => {
 
 </body>
 </html>
+
 
 
 
