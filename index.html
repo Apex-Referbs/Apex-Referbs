@@ -50,25 +50,30 @@
       pointer-events:none;
     }
   </style>
-
 <style id="hero-face-safe">
+/* Keep hero text out of the right side (face area) */
 @media (min-width: 1024px){
   #hero h1, #hero h2 { max-width: 18ch !important; }
   #hero p            { max-width: 55ch !important; }
   #hero .btn, #hero a { max-width: 55ch !important; }
+
+  /* Add a right-side "no-go" zone so the block doesn't spread */
   #hero { padding-right: 28vw !important; }
 }
+
+/* Mobile: normal */
 @media (max-width: 1023px){
   #hero { padding-right: 0 !important; }
 }
 </style>
-
 <style id="apex-theme-polish">
   :root{
     --apex-blue: #2563eb;
     --apex-blue-dark:#1d4ed8;
     --apex-ink:#0f172a;
   }
+
+  /* Buttons */
   a[href="#quote"], .btn-primary{
     background: var(--apex-blue) !important;
     border-color: var(--apex-blue) !important;
@@ -76,7 +81,11 @@
   a[href="#quote"]:hover, .btn-primary:hover{
     background: var(--apex-blue-dark) !important;
   }
+
+  /* Links + subtle blue feel */
   a{ text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+  /* Cards hover polish */
   .apex-card{
     transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
@@ -85,14 +94,21 @@
     border-color: rgba(37,99,235,.45);
     box-shadow: 0 0 0 3px rgba(37,99,235,.18), 0 18px 45px rgba(2,6,23,.12);
   }
-</style>
 
+  /* Blue hover ring */
+  .:hover{
+    box-shadow: 0 0 0 3px rgba(37,99,235,.55), 0 18px 45px rgba(2,6,23,.12) !important;
+  }
+</style>
 <style id="apex-soft-polish">
+  /* Subtle site tint */
   body{
     background: radial-gradient(1200px 700px at 20% 0%, rgba(59,130,246,0.08), transparent 60%),
                 radial-gradient(900px 600px at 85% 20%, rgba(14,165,233,0.06), transparent 55%),
                 linear-gradient(180deg, rgba(248,250,252,1), rgba(255,255,255,1));
   }
+
+  /* Soft floating orbs */
   .apex-orbs{
     position: fixed;
     inset: 0;
@@ -118,7 +134,10 @@
     50%{ transform: translate3d(40px, -30px, 0) scale(1.06); }
   }
 
+  /* Ensure page content sits above orbs */
   body > *{ position: relative; z-index: 1; }
+
+  /* Polished default card look */
   .apex-card{
     background: rgba(255,255,255,.92) !important;
     border: 1px solid rgba(15,23,42,.10) !important;
@@ -131,12 +150,14 @@
     border-color: rgba(59,130,246,.20) !important;
     box-shadow: 0 18px 44px rgba(2,6,23,.10) !important;
   }
+
+  /* Kill loud blue blocks if any got applied */
   .apex-card, .service-card{
     color: #0f172a !important;
   }
 </style>
-
 <style id="apex-full-bg-orbs">
+  /* Whole site background tint */
   html, body{
     height: 100%;
     background:
@@ -146,6 +167,8 @@
       linear-gradient(180deg, #f7fbff 0%, #ffffff 55%, #f8fbff 100%) !important;
     background-attachment: fixed !important;
   }
+
+  /* Floating orbs layer */
   .apex-bg-orbs{
     position: fixed;
     inset: 0;
@@ -178,21 +201,26 @@
     background: rgba(99,102,241,1);
     animation-duration: 26s;
   }
+
   @keyframes apexOrbFloat{
     0%,100%{ transform: translate3d(0,0,0) scale(1); }
     50%{ transform: translate3d(60px,-40px,0) scale(1.08); }
   }
+
+  /* Make sure site content stays above the orbs */
   body{
     position: relative;
     z-index: 1;
   }
   .apex-bg-orbs{ z-index: 0; }
+
+  /* Prevent any section from force-setting a solid background that kills the tint */
   section{
     background-color: transparent !important;
   }
 </style>
-
 <style id="apex-bg-orbs-working">
+  /* 1) TRUE page background layer */
   .apex-bg-layer{
     position: fixed;
     inset: 0;
@@ -224,7 +252,10 @@
     50%{ transform: translate3d(70px,-45px,0) scale(1.08); }
   }
 
+  /* 2) Put ALL site content above the background layer */
   body{ position: relative; z-index: 1; background: transparent !important; }
+
+  /* 3) IMPORTANT: remove big white section paints so tint is visible */
   section{ background: transparent !important; }
   [class*="bg-white"]:where(section),
   [class*="bg-slate-50"]:where(section),
@@ -232,6 +263,7 @@
     background: transparent !important;
   }
 
+  /* 4) Keep cards looking clean (white), so it still reads professional */
   .apex-card, .service-card,
   .rounded-2xl, .rounded-3xl,
   .shadow-xl, .shadow-2xl{
@@ -239,7 +271,6 @@
     border-color: rgba(15,23,42,.10) !important;
   }
 </style>
-
 <style id="apex-float-contact-style">
   .apex-float{ position: fixed; right: 16px; bottom: 16px; z-index: 60; display:flex; flex-direction:column; gap:10px; }
   .apex-float a{
@@ -262,11 +293,13 @@
     height: 580px;
     border-radius: 9999px;
     object-fit: cover;
+    /* RIGHT then DOWN */
     object-position: 62% 28%;
     border: 12px solid rgba(255,255,255,.96);
     box-shadow: 0 30px 90px rgba(2,6,23,.25);
     background: #fff;
   }
+
   #about-greg .meet-greg-label{
     margin-top: 22px;
     font-size: 0.9rem;
@@ -278,17 +311,23 @@
 </style>
 
 <style id="greg-portrait-fix">
+  /* Only affects the Meet Greg circular portrait */
   #about-greg img.greg-portrait{
-    object-fit: cover !important;
-    object-position: 64% 22% !important;
-    transform: scale(0.78) !important;
-    transform-origin: 64% 22% !important;
-  }
+  object-fit: cover !important;
+
+  /* move face slightly right + down */
+  object-position: 64% 22% !important;
+
+  /* zoom OUT more so full head fits */
+  transform: scale(0.78) !important;
+  transform-origin: 64% 22% !important;
+}
 </style>
 
 <style id="greg-portrait-force">
+  /* Force portrait circle behaviour using a background image (more control than <img>) */
   #about-greg .greg-portrait-wrap{
-    width: 420px;
+    width: 420px;              /* BIGGER circle */
     height: 420px;
     border-radius: 9999px;
     border: 10px solid #fff;
@@ -301,24 +340,34 @@
     width: 100%;
     height: 100%;
     border-radius: 9999px;
+
+    /* HERE IS THE IMPORTANT BIT */
     background-image: url("assets/img/greg.jpg");
     background-repeat: no-repeat;
+
+    /* Zoom OUT more so full head fits */
     background-size: 110%;
+
+    /* Move image slightly right + down */
     background-position: 56% 18%;
   }
+
+  /* Make MEET GREG easier to read */
   #about-greg .meet-greg-kicker{
     font-weight: 900 !important;
     font-size: 14px !important;
     letter-spacing: .22em !important;
     text-transform: uppercase !important;
   }
+
+  /* Smaller circle on mobiles */
   @media (max-width: 640px){
     #about-greg .greg-portrait-wrap{ width: 320px; height: 320px; }
   }
 </style>
-
 <!-- APEX_UI_GLOW_V1 -->
 <style id="apex-ui-glow-v1">
+  /* Greg soft highlight */
   #about-greg{ position: relative; }
   #about-greg::before{
     content:"";
@@ -329,11 +378,15 @@
     pointer-events:none;
   }
   #about-greg > *{ position: relative; z-index:1; }
+
+  /* Greg portrait glow */
   #about-greg img{
     box-shadow:
       0 0 0 6px rgba(255,255,255,0.95),
       0 18px 60px rgba(59,130,246,0.45);
   }
+
+  /* Testimonial emphasis */
   #gallery .t-card{ position: relative; }
   #gallery .t-card::after{
     content:"";
@@ -347,17 +400,19 @@
   #gallery .t-card:hover::after{
     box-shadow: 0 0 0 4px rgba(59,130,246,0.18);
   }
+
+  /* Tiny headline polish */
   #gallery h2,
   #about-greg h2{
     text-shadow: 0 1px 0 rgba(255,255,255,0.6);
   }
 </style>
 <!-- /APEX_UI_GLOW_V1 -->
-
 <style id="apex-hero-mobile-fix">
+  /* Mobile hero: reduce height and keep face/subject visible */
   @media (max-width: 767px){
     #heroHeroImgWrap{ height: 280px !important; }
-    #heroHeroImg{ object-position: 50% 30% !important; }
+    #heroHeroImg{ object-position: 50% 30% !important; } /* move focal point down a touch */
     #hero .btnRow{ gap: 10px !important; }
     #hero .btnRow a{ width: 100% !important; justify-content: center !important; }
   }
@@ -365,8 +420,8 @@
     #heroHeroImgWrap{ height: 520px !important; }
   }
 </style>
-
 <style id="apex-mobile-hero-fix">
+  /* Hero container */
   .hero-image{
     width: 100%;
     overflow: hidden;
@@ -380,19 +435,22 @@
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: 60% 26%;
+    object-position: 60% 26%; /* show more above the van + keep bodies */
   }
 
+  /* Mobile: same width as site content, tidy height */
   @media (max-width: 768px){
     .hero-image{ height: 320px !important; }
     .hero-image img{ object-position: 60% 24% !important; }
   }
 
+  /* Desktop: slightly taller so we get more top + bottom */
   @media (min-width: 769px){
     .hero-image{ height: 620px; }
     .hero-image img{ object-position: 60% 26%; }
   }
 
+  /* Centre hero text area on mobile */
   @media (max-width: 768px){
     #heroWrap, #hero, section#hero, section[aria-label="Hero"]{
       text-align: center !important;
@@ -406,14 +464,13 @@
     }
   }
 </style>
-
 <style id="apex-services-img-fix">
+  /* Services cards: always cover, never inherit hero settings */
   #services img.svc-img{
     object-fit: cover !important;
     object-position: center center !important;
   }
 </style>
-
 <style id="apex-mobile-lock">
   html, body { overflow-x: hidden; }
   img { max-width: 100%; height: auto; }
@@ -421,48 +478,30 @@
     .apex-hero-h { height: 320px !important; }
   }
 </style>
-
 <style>
 /* === HERO_CROP_FORCE_V1 === */
 img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], img[src*="apex-hero.png"]{
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: 50% 42% !important;
+  object-position: 50% 42% !important; /* 20% more bottom vs ~22% */
   display: block !important;
 }
+/* If your hero wrapper exists, keep it tidy and consistent */
 #hero, section#hero{
   overflow: hidden;
 }
 @media (max-width: 640px){
+  /* Make hero behave like the services width (no weird over-wide image) */
   #hero img, section#hero img{
     max-width: 100% !important;
   }
 }
 /* === END HERO_CROP_FORCE_V1 === */
 </style>
-
-<!-- FINAL: your requested adjustments -->
-<style id="hero-final-adjustments">
-  /* Desktop: move hero image 3mm to the right */
-  @media (min-width: 1024px){
-    .hero-image{
-      transform: translateX(3mm);
-    }
-  }
-
-  /* Mobile: bring bottom of hero up to remove the black line */
-  @media (max-width: 768px){
-    .hero-image{
-      height: 280px !important;
-    }
-  }
-</style>
-
 </head>
 
 <body class="bg-slate-50 text-slate-800">
-
 <div id="apex-float-contact" class="apex-float" aria-label="Quick contact">
   <a class="call" href="tel:01743623392" title="Call us">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
@@ -512,7 +551,6 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
     </svg>
   </a>
 </div>
-
 <div class="apex-bg-layer" aria-hidden="true">
   <div class="orb one"></div>
   <div class="orb two"></div>
@@ -555,52 +593,49 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
 
   <!-- HERO -->
   <section class="bg-white">
-    <div class="mx-auto max-w-6xl px-4 pt-0">
-      <div class="hero-image">
-        <img
-          src="assets/img/apex-hero.jpg"
-          alt="Apex Refurbs team"
-          class="w-full h-full object-cover object-center hero-img"
-          id="heroImg"
-        >
+  <div class="hero-image">
+  <div class="hero-img-wrap"><img src="assets/img/apex-hero.jpg"
+         alt="Apex Refurbs team"
+         class="w-full h-full object-cover  object-center hero-img" id="heroImg"</div>
+</div>
+
+  <div class="mx-auto max-w-6xl px-4 py-14">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700">
+        Tidy sites • Clear timelines • Quality finish
+      </div>
+
+      <h1 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+        Professional building work done properly
+      </h1>
+
+      <p class="mt-5 text-lg text-slate-600">
+        House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural builds.
+        Clear communication and a finish you can be proud of.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4 btnRow">
+        <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-white px-7 py-4 text-white font-semibold hover:bg-white transition">
+          Get a free quote
+        </a>
+        <a href="#services" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-4 text-slate-900 font-semibold hover:bg-slate-50 transition">
+          View services
+        </a>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3 text-sm text-slate-700">
+        <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Fully insured</span>
+        <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Domestic and commercial</span>
+        <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Agricultural builds</span>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="mx-auto max-w-6xl px-4 py-14">
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700">
-          Tidy sites • Clear timelines • Quality finish
-        </div>
-
-        <h1 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
-          Professional building work done properly
-        </h1>
-
-        <p class="mt-5 text-lg text-slate-600">
-          House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural builds.
-          Clear communication and a finish you can be proud of.
-        </p>
-
-        <div class="mt-8 flex flex-wrap gap-4 btnRow">
-          <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-white px-7 py-4 text-white font-semibold hover:bg-white transition">
-            Get a free quote
-          </a>
-          <a href="#services" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-4 text-slate-900 font-semibold hover:bg-slate-50 transition">
-            View services
-          </a>
-        </div>
-
-        <div class="mt-8 flex flex-wrap gap-3 text-sm text-slate-700">
-          <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Fully insured</span>
-          <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Domestic and commercial</span>
-          <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Agricultural builds</span>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- SERVICES -->
   <section id="services" class="py-20">
   <style id="services-uniform-v2">
+    /* Subtle background tint behind the whole Services area */
     #services{
       background: radial-gradient(900px 420px at 10% 0%, rgba(59,130,246,.10), transparent 60%),
                   radial-gradient(900px 420px at 90% 20%, rgba(147,197,253,.10), transparent 55%),
@@ -624,7 +659,7 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
       background: rgba(255,255,255,.92);
       box-shadow: 0 14px 38px rgba(2,6,23,.10);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-      min-height: 430px;
+      min-height: 430px; /* keeps all equal height */
       text-decoration:none;
       color:#0f172a;
     }
@@ -640,15 +675,16 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
       display:block;
     }
 
+    /* Lighter blue panel (NOT the dark blue blocks) */
     #services .svc-body{
-      padding: 16px 18px 18px;
-      background: rgba(255,255,255,.94);
-      border-top: 1px solid rgba(15,23,42,.08);
-      flex: 1;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-    }
+  padding: 16px 18px 18px;
+  background: rgba(255,255,255,.94);
+  border-top: 1px solid rgba(15,23,42,.08);
+  flex: 1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
     #services .svc-kicker{
       font-size: 12px;
       font-weight: 700;
@@ -657,19 +693,19 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
       color: rgba(15,23,42,.55);
     }
     #services .svc-title{
-      margin-top: 8px;
-      font-size: 22px;
-      line-height: 1.15;
-      font-weight: 900;
-      color:#0f172a;
-    }
+  margin-top: 8px;
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 900;
+  color:#0f172a;
+}
     #services .svc-desc{
-      margin-top: 10px;
-      font-size: 14px;
-      line-height: 1.6;
-      color: rgba(15,23,42,.72);
-      max-width: 48ch;
-    }
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(15,23,42,.72);
+  max-width: 48ch;
+}
   </style>
 
   <div class="mx-auto max-w-6xl px-4">
@@ -686,6 +722,7 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
 
     <div class="mt-10 svc-grid">
 
+      
 <a href="#quote" class="svc-card">
         <img class="svc-img" src="assets/img/services/svc_groundworks.jpg" alt="Groundworks and outdoor works">
         <div class="svc-body">
@@ -740,7 +777,7 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
         </div>
       </a>
 
-      <a href="#quote" class="svc-card">
+          <a href="#quote" class="svc-card">
         <img class="svc-img" src="assets/img/services/svc_kitchen.jpg" alt="Kitchen fitting and installation">
         <div class="svc-body">
           <div class="svc-kicker">Kitchens</div>
@@ -748,7 +785,6 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
           <div class="svc-desc">Full fitting and installation. Cabinets, worktops and finishing, done neatly and properly.</div>
         </div>
       </a>
-
       <a href="#quote" class="svc-card">
         <img class="svc-img" src="assets/img/services/svc_bathroom.jpg" alt="Bathroom fitting and tiling">
         <div class="svc-body">
@@ -757,7 +793,6 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
           <div class="svc-desc">Full bathroom fitting with professional tiling and a clean, watertight finish.</div>
         </div>
       </a>
-
       <a href="#quote" class="svc-card">
         <img class="svc-img" src="assets/img/services/svc_steel_agri.jpg" alt="Steel erection and agricultural sheds">
         <div class="svc-body">
@@ -766,8 +801,7 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
           <div class="svc-desc">Frames, fixings and farm buildings installed safely, accurately and on schedule.</div>
         </div>
       </a>
-
-    </div>
+</div>
   </div>
 </section>
 
@@ -974,13 +1008,14 @@ setInterval(() => {
 </section>
 
   <!-- QUOTE -->
+  <!-- <div class="meet-greg-label">Meet Greg</div> -->
   <section id="about-greg" class="py-16">
     <div class="mx-auto max-w-5xl px-4">
       <div class="greg-wrap px-7 py-12 md:px-12 md:py-14 text-center">
         <div class="flex justify-center">
           <div class="greg-portrait-wrap">
-            <div class="greg-portrait-bg" role="img" aria-label="Greg"></div>
-          </div>
+  <div class="greg-portrait-bg" role="img" aria-label="Greg"></div>
+</div>
         </div>
 
         <div class="mt-7 text-xs font-extrabold uppercase text-slate-500 greg-kicker"><div class="meet-greg-kicker">MEET GREG</div></div>
@@ -1024,7 +1059,7 @@ setInterval(() => {
       </div>
     </div>
   </section>
-
+  <!-- /<div class="meet-greg-label">Meet Greg</div> -->
 <section id="quote" class="py-14 bg-slate-50">
     <div class="mx-auto max-w-4xl px-4 text-center">
       <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight">Get a quote</h2>
@@ -1111,3 +1146,107 @@ setInterval(() => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
