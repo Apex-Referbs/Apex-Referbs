@@ -50,6 +50,7 @@
       pointer-events:none;
     }
   </style>
+
 <style id="hero-face-safe">
 @media (min-width: 1024px){
   #hero h1, #hero h2 { max-width: 18ch !important; }
@@ -61,6 +62,7 @@
   #hero { padding-right: 0 !important; }
 }
 </style>
+
 <style id="apex-theme-polish">
   :root{
     --apex-blue: #2563eb;
@@ -86,11 +88,8 @@
     border-color: rgba(37,99,235,.45);
     box-shadow: 0 0 0 3px rgba(37,99,235,.18), 0 18px 45px rgba(2,6,23,.12);
   }
-
-  .:hover{
-    box-shadow: 0 0 0 3px rgba(37,99,235,.55), 0 18px 45px rgba(2,6,23,.12) !important;
-  }
 </style>
+
 <style id="apex-soft-polish">
   body{
     background: radial-gradient(1200px 700px at 20% 0%, rgba(59,130,246,0.08), transparent 60%),
@@ -142,65 +141,7 @@
     color: #0f172a !important;
   }
 </style>
-<style id="apex-full-bg-orbs">
-  html, body{
-    height: 100%;
-    background:
-      radial-gradient(1100px 700px at 18% 0%, rgba(56,189,248,0.14), transparent 62%),
-      radial-gradient(900px 650px at 92% 18%, rgba(59,130,246,0.12), transparent 60%),
-      radial-gradient(900px 650px at 55% 105%, rgba(99,102,241,0.10), transparent 58%),
-      linear-gradient(180deg, #f7fbff 0%, #ffffff 55%, #f8fbff 100%) !important;
-    background-attachment: fixed !important;
-  }
 
-  .apex-bg-orbs{
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .apex-bg-orbs .orb{
-    position: absolute;
-    width: 520px;
-    height: 520px;
-    border-radius: 9999px;
-    filter: blur(70px);
-    opacity: 0.28;
-    transform: translate3d(0,0,0);
-    animation: apexOrbFloat 18s ease-in-out infinite;
-    mix-blend-mode: multiply;
-  }
-  .apex-bg-orbs .orb.one{
-    left: -180px; top: -220px;
-    background: rgba(56,189,248,1);
-  }
-  .apex-bg-orbs .orb.two{
-    right: -220px; top: 120px;
-    background: rgba(59,130,246,1);
-    animation-duration: 22s;
-  }
-  .apex-bg-orbs .orb.three{
-    left: 40%; bottom: -280px;
-    background: rgba(99,102,241,1);
-    animation-duration: 26s;
-  }
-
-  @keyframes apexOrbFloat{
-    0%,100%{ transform: translate3d(0,0,0) scale(1); }
-    50%{ transform: translate3d(60px,-40px,0) scale(1.08); }
-  }
-
-  body{
-    position: relative;
-    z-index: 1;
-  }
-  .apex-bg-orbs{ z-index: 0; }
-
-  section{
-    background-color: transparent !important;
-  }
-</style>
 <style id="apex-bg-orbs-working">
   .apex-bg-layer{
     position: fixed;
@@ -249,6 +190,7 @@
     border-color: rgba(15,23,42,.10) !important;
   }
 </style>
+
 <style id="apex-float-contact-style">
   .apex-float{ position: fixed; right: 16px; bottom: 16px; z-index: 60; display:flex; flex-direction:column; gap:10px; }
   .apex-float a{
@@ -265,119 +207,6 @@
   @media (min-width: 900px){ .apex-float{ right: 22px; bottom: 22px; } }
 </style>
 
-<style id="greg-section-css">
-  #about-greg .greg-portrait{
-    width: 580px;
-    height: 580px;
-    border-radius: 9999px;
-    object-fit: cover;
-    object-position: 62% 28%;
-    border: 12px solid rgba(255,255,255,.96);
-    box-shadow: 0 30px 90px rgba(2,6,23,.25);
-    background: #fff;
-  }
-
-  #about-greg .meet-greg-label{
-    margin-top: 22px;
-    font-size: 0.9rem;
-    font-weight: 900;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #2563eb;
-  }
-</style>
-
-<style id="greg-portrait-fix">
-  #about-greg img.greg-portrait{
-  object-fit: cover !important;
-  object-position: 64% 22% !important;
-  transform: scale(0.78) !important;
-  transform-origin: 64% 22% !important;
-}
-</style>
-
-<style id="greg-portrait-force">
-  #about-greg .greg-portrait-wrap{
-    width: 420px;
-    height: 420px;
-    border-radius: 9999px;
-    border: 10px solid #fff;
-    box-shadow: 0 22px 60px rgba(2,6,23,.18);
-    overflow: hidden;
-    margin: 0 auto 18px auto;
-    background: #fff;
-  }
-  #about-greg .greg-portrait-bg{
-    width: 100%;
-    height: 100%;
-    border-radius: 9999px;
-    background-image: url("assets/img/greg.jpg");
-    background-repeat: no-repeat;
-    background-size: 110%;
-    background-position: 56% 18%;
-  }
-
-  #about-greg .meet-greg-kicker{
-    font-weight: 900 !important;
-    font-size: 14px !important;
-    letter-spacing: .22em !important;
-    text-transform: uppercase !important;
-  }
-
-  @media (max-width: 640px){
-    #about-greg .greg-portrait-wrap{ width: 320px; height: 320px; }
-  }
-</style>
-<!-- APEX_UI_GLOW_V1 -->
-<style id="apex-ui-glow-v1">
-  #about-greg{ position: relative; }
-  #about-greg::before{
-    content:"";
-    position:absolute;
-    inset:-60px;
-    background: radial-gradient(400px 300px at 50% 20%, rgba(59,130,246,0.18), transparent 60%);
-    z-index:0;
-    pointer-events:none;
-  }
-  #about-greg > *{ position: relative; z-index:1; }
-
-  #about-greg img{
-    box-shadow:
-      0 0 0 6px rgba(255,255,255,0.95),
-      0 18px 60px rgba(59,130,246,0.45);
-  }
-
-  #gallery .t-card{ position: relative; }
-  #gallery .t-card::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius: 20px;
-    box-shadow: 0 0 0 0 rgba(59,130,246,0.0);
-    transition: box-shadow .25s ease;
-    pointer-events:none;
-  }
-  #gallery .t-card:hover::after{
-    box-shadow: 0 0 0 4px rgba(59,130,246,0.18);
-  }
-
-  #gallery h2,
-  #about-greg h2{
-    text-shadow: 0 1px 0 rgba(255,255,255,0.6);
-  }
-</style>
-<!-- /APEX_UI_GLOW_V1 -->
-<style id="apex-hero-mobile-fix">
-  @media (max-width: 767px){
-    #heroHeroImgWrap{ height: 280px !important; }
-    #heroHeroImg{ object-position: 50% 30% !important; }
-    #hero .btnRow{ gap: 10px !important; }
-    #hero .btnRow a{ width: 100% !important; justify-content: center !important; }
-  }
-  @media (min-width: 768px){
-    #heroHeroImgWrap{ height: 520px !important; }
-  }
-</style>
 <style id="apex-mobile-hero-fix">
   .hero-image{
     width: 100%;
@@ -392,17 +221,19 @@
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: 60% 26%;
+    object-position: 50% 28%;
   }
 
+  /* MOBILE: show more of the photo (zoom out effect by giving more height + better focal point) */
   @media (max-width: 768px){
-    .hero-image{ height: 320px !important; }
-    .hero-image img{ object-position: 60% 24% !important; }
+    .hero-image{ height: 420px !important; }
+    .hero-image img{ object-position: 50% 18% !important; }
   }
 
+  /* DESKTOP */
   @media (min-width: 769px){
     .hero-image{ height: 620px; }
-    .hero-image img{ object-position: 60% 26%; }
+    .hero-image img{ object-position: 50% 30%; }
   }
 
   @media (max-width: 768px){
@@ -418,12 +249,14 @@
     }
   }
 </style>
+
 <style id="apex-services-img-fix">
   #services img.svc-img{
     object-fit: cover !important;
     object-position: center center !important;
   }
 </style>
+
 <style id="apex-mobile-lock">
   html, body { overflow-x: hidden; }
   img { max-width: 100%; height: auto; }
@@ -431,23 +264,7 @@
     .apex-hero-h { height: 320px !important; }
   }
 </style>
-<style>
-img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], img[src*="apex-hero.png"]{
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: 50% 42% !important;
-  display: block !important;
-}
-#hero, section#hero{
-  overflow: hidden;
-}
-@media (max-width: 640px){
-  #hero img, section#hero img{
-    max-width: 100% !important;
-  }
-}
-</style>
+
 </head>
 
 <body class="bg-slate-50 text-slate-800">
@@ -500,16 +317,13 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
     </svg>
   </a>
 </div>
+
 <div class="apex-bg-layer" aria-hidden="true">
   <div class="orb one"></div>
   <div class="orb two"></div>
   <div class="orb three"></div>
 </div>
-<div class="apex-bg-orbs" aria-hidden="true">
-  <div class="orb one"></div>
-  <div class="orb two"></div>
-  <div class="orb three"></div>
-</div>
+
 <div class="apex-orbs" aria-hidden="true">
   <div class="apex-orb one"></div>
   <div class="apex-orb two"></div>
@@ -541,83 +355,59 @@ img[src*="apex-hero"], img[src*="apex-hero.jpg"], img[src*="apex-hero.jpeg"], im
 <main class="pt-16">
 
   <!-- HERO -->
-  <section id="hero" class="bg-white">
-    <div class="hero-image">
-      <img src="assets/img/apex-hero.jpg"
-           alt="Apex Refurbs team"
-           class="w-full h-full object-cover object-center hero-img"
-           id="heroImg" />
-    </div>
+  <section id="hero" class="py-6 md:py-10">
+    <div class="mx-auto max-w-6xl px-4">
+      <!-- FIXED hero image markup + centered container -->
+      <div class="hero-image">
+        <img
+          src="assets/img/apex-hero.jpg"
+          alt="Apex Refurbs team"
+          class="w-full h-full hero-img"
+          id="heroImg"
+        />
+      </div>
 
-    <!-- DESKTOP ONLY: hero text block stays, MOBILE hides it -->
-    <div class="mx-auto max-w-6xl px-4 py-14 hidden md:block">
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700">
-          Tidy sites • Clear timelines • Quality finish
-        </div>
-
-        <h1 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
-          Professional building work done properly
+      <!-- MOBILE ONLY: keep headline only, remove extra text + remove free quote button -->
+      <div class="md:hidden py-10 text-center">
+        <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">
+          Professional builders who get it done properly
         </h1>
+      </div>
 
-        <p class="mt-5 text-lg text-slate-600">
-          House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural builds.
-          Clear communication and a finish you can be proud of.
-        </p>
+      <!-- DESKTOP/TABLET hero text stays as-is -->
+      <div class="hidden md:block py-14">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700">
+            Tidy sites • Clear timelines • Quality finish
+          </div>
 
-        <div class="mt-8 flex flex-wrap gap-4 btnRow">
-          <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-white px-7 py-4 text-white font-semibold hover:bg-white transition">
-            Get a free quote
-          </a>
-          <a href="#services" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-4 text-slate-900 font-semibold hover:bg-slate-50 transition">
-            View services
-          </a>
+          <h1 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+            Professional building work done properly
+          </h1>
+
+          <p class="mt-5 text-lg text-slate-600">
+            House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural builds.
+            Clear communication and a finish you can be proud of.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4 btnRow">
+            <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-7 py-4 text-white font-semibold hover:bg-brand-700 transition">
+              Get a free quote
+            </a>
+            <a href="#services" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-4 text-slate-900 font-semibold hover:bg-slate-50 transition">
+              View services
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3 text-sm text-slate-700">
+            <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Fully insured</span>
+            <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Domestic and commercial</span>
+            <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Agricultural builds</span>
+          </div>
         </div>
-
-        <div class="mt-8 flex flex-wrap gap-3 text-sm text-slate-700">
-          <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Fully insured</span>
-          <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Domestic and commercial</span>
-          <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Agricultural builds</span>
-        </div>
       </div>
     </div>
   </section>
-
-  <!-- MOBILE ONLY HEADER (added) -->
-  <section class="md:hidden py-10">
-    <div class="mx-auto max-w-6xl px-4 text-center">
-      <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">
-        Professional builders who get it done properly
-      </h1>
-      <p class="mt-3 text-base text-slate-600">
-        Extensions, renovations, kitchens, bathrooms, steelwork and agricultural builds.
-        Clear quotes, tidy sites, and quality workmanship.
-      </p>
-      <div class="mt-6">
-        <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-7 py-4 text-white font-semibold hover:bg-brand-700 transition w-full">
-          Get a free quote
-        </a>
-      </div>
-    </div>
-  </section>
-  <!-- MOBILE ONLY INTRO (shows on mobile, hidden on desktop) -->
-  <section class="md:hidden py-10">
-    <div class="mx-auto max-w-6xl px-4 text-center">
-      <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">
-        Professional builders who turn up and get it done properly
-      </h1>
-      <p class="mt-3 text-base text-slate-600">
-        Extensions, renovations, kitchens, bathrooms, steelwork and agricultural builds.
-        Clear quotes, tidy sites, and quality workmanship.
-      </p>
-      <div class="mt-6">
-        <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-7 py-4 text-white font-semibold hover:bg-brand-700 transition w-full">
-          Get a free quote
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- SERVICES -->
   <section id="services" class="py-20">
   <style id="services-uniform-v2">
@@ -997,7 +787,7 @@ if(slides.length){
   </div>
 </section>
 
-  <!-- QUOTE -->
+  <!-- ABOUT GREG -->
   <section id="about-greg" class="py-16">
     <div class="mx-auto max-w-5xl px-4">
       <div class="greg-wrap px-7 py-12 md:px-12 md:py-14 text-center">
@@ -1007,7 +797,9 @@ if(slides.length){
           </div>
         </div>
 
-        <div class="mt-7 text-xs font-extrabold uppercase text-slate-500 greg-kicker"><div class="meet-greg-kicker">MEET GREG</div></div>
+        <div class="mt-7 text-xs font-extrabold uppercase text-slate-500 greg-kicker">
+          <div class="meet-greg-kicker">MEET GREG</div>
+        </div>
         <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
           The person you’ll be speaking to
         </h2>
@@ -1049,6 +841,7 @@ if(slides.length){
     </div>
   </section>
 
+  <!-- QUOTE -->
   <section id="quote" class="py-14 bg-slate-50">
     <div class="mx-auto max-w-4xl px-4 text-center">
       <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight">Get a quote</h2>
@@ -1135,3 +928,4 @@ if(slides.length){
 
 </body>
 </html>
+
