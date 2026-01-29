@@ -90,6 +90,7 @@
       #apex-float-contact{ right:22px !important; bottom:22px !important; }
     }
 
+    /* HERO IMAGE */
     .hero-image{
       width: 100%;
       overflow: hidden;
@@ -106,14 +107,18 @@
       object-position: 50% 42%;
       transform: none;
     }
+
+    /* MOBILE HERO: wider/shallower + zoom OUT so both men fit */
     @media (max-width: 768px){
-      .hero-image{ height: 380px !important; border-radius:16px; }
+      .hero-image{ height: 260px !important; border-radius:16px; }
       .hero-image img{
-        transform: scale(0.86) !important;
-        transform-origin: 50% 28% !important;
-        object-position: 50% 28% !important;
+        transform: scale(0.72) !important;
+        transform-origin: 50% 18% !important;
+        object-position: 50% 18% !important;
       }
     }
+
+    /* DESKTOP HERO: unchanged */
     @media (min-width: 769px){
       .hero-image{ height: 640px; }
       .hero-image img{ transform:none !important; object-position:50% 42% !important; }
