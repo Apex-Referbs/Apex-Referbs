@@ -26,12 +26,13 @@
     body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
     html, body{ overflow-x:hidden; min-height:100%; }
 
+    /* slightly darker, consistent background everywhere (including hero area) */
     html, body{
       background:
-        radial-gradient(1100px 700px at 18% 0%, rgba(56,189,248,0.18), transparent 62%),
-        radial-gradient(900px 650px at 92% 18%, rgba(59,130,246,0.14), transparent 60%),
-        radial-gradient(900px 650px at 55% 105%, rgba(99,102,241,0.12), transparent 58%),
-        linear-gradient(180deg, #f6fbff 0%, #ffffff 55%, #f7fbff 100%);
+        radial-gradient(1100px 700px at 18% 0%, rgba(56,189,248,0.24), transparent 62%),
+        radial-gradient(900px 650px at 92% 18%, rgba(59,130,246,0.20), transparent 60%),
+        radial-gradient(900px 650px at 55% 105%, rgba(99,102,241,0.18), transparent 58%),
+        linear-gradient(180deg, #f2f8ff 0%, #ffffff 55%, #f3f9ff 100%);
       background-attachment: fixed;
     }
 
@@ -108,7 +109,24 @@
       transform: none;
     }
 
-    /* MOBILE HERO: shows BOTH men (zoom OUT a bit) */
+    /* DESKTOP: make hero area span wider (without touching mobile) */
+    .hero-bleed{ width:100%; }
+    @media (min-width: 969px){
+      .hero-bleed{
+        width:100vw;
+        margin-left:calc(50% - 50vw);
+        padding-left:24px;
+        padding-right:24px;
+      }
+      .hero-bleed-inner{
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .hero-image{ height: 640px; }
+      .hero-image img{ transform:none !important; object-position: 50% 42% !important; }
+    }
+
+    /* MOBILE HERO: shows BOTH men (UNCHANGED) */
     @media (max-width: 968px){
       .hero-image{ height: 220px !important; border-radius:16px; }
       .hero-image img{
@@ -118,54 +136,22 @@
       }
     }
 
-/* DESKTOP HERO */
-@media (min-width: 969px) {
-  .hero-image {
-    width: 100%; /* Make the hero image full width */
-    height: 640px;
-    overflow: hidden;
-    border-radius: 18px;
-    border: 1px solid rgba(15,23,22,0.08);
-    box-shadow: 0 14px 38px rgba(2,6,23,0.10);
-    background: #eaf2fb;
-  }
-  .hero-image img {
-    transform: none !important;
-    object-position: 50% 42% !important;
-  }
-}
-
-#services .svc-grid {
-  display: grid;
-  gap: 24px;
-}
-
-@media (min-width: 1024px) {
-  #services .svc-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-#services .svc-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid rgba(15,23,42,0.10);
-  background: rgba(255,255,255,0.92);
-  box-shadow: 0 14px 38px rgba(2,6,23,0.10);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-  min-height: 430px;
-  text-decoration: none;
-  color: #0f172a;
-}
-
-#services .svc-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(59,130,246,0.28);
-  box-shadow: 0 26px 64px rgba(2,6,23,0.14);
-}
-
+    #services .svc-grid{ display:grid; gap:24px; }
+    @media (min-width:1024px){ #services .svc-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+    #services .svc-card{
+      display:flex; flex-direction:column; border-radius:24px; overflow:hidden;
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 14px 38px rgba(2,6,23,.10);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      min-height: 430px;
+      text-decoration:none; color:#0f172a;
+    }
+    #services .svc-card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(59,130,246,.28);
+      box-shadow: 0 26px 64px rgba(2,6,23,.14);
+    }
     #services .svc-img{ width:100%; height:220px; object-fit:cover; object-position:center; display:block; }
     #services .svc-body{
       padding:16px 18px 18px;
@@ -314,9 +300,10 @@
 
   <main class="pt-16">
 
-    <section class="bg-white">
-      <div class="px-4 pt-10">
-        <div class="mx-auto max-w-7xl">
+    <!-- HERO (no white block; uses the same site background) -->
+    <section>
+      <div class="pt-10 hero-bleed">
+        <div class="hero-bleed-inner px-4 md:px-0">
           <div class="hero-image">
             <img src="assets/img/apex-hero.jpg" alt="Apex Refurbs team" id="heroImg">
           </div>
@@ -346,6 +333,7 @@
       </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services" class="py-20">
       <div class="mx-auto max-w-6xl px-4">
         <div class="flex items-end justify-between gap-6">
@@ -445,6 +433,7 @@
       </div>
     </section>
 
+    <!-- REVIEWS -->
     <section id="gallery" class="py-16">
       <div class="mx-auto max-w-6xl px-4">
         <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">What customers say</h2>
@@ -517,6 +506,7 @@
       </div>
     </section>
 
+    <!-- MEET GREG -->
     <section id="about-greg" class="py-16">
       <div class="mx-auto max-w-5xl px-4">
         <div class="px-7 py-12 md:px-12 md:py-14 text-center bg-white/80 rounded-[32px] border border-slate-200 shadow-[0_30px_80px_rgba(36,94,234,0.10)]">
@@ -556,6 +546,7 @@
       </div>
     </section>
 
+    <!-- QUOTE -->
     <section id="quote" class="py-14 bg-slate-50">
       <div class="mx-auto max-w-4xl px-4 text-center">
         <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight">Get a quote</h2>
@@ -650,34 +641,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
