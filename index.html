@@ -629,73 +629,73 @@
         <!-- FORM CARD -->
         <div class="mt-12 bg-white rounded-[32px] border border-slate-200 p-10 text-left shadow-[0_30px_80px_rgba(36,94,234,0.18)] hover:shadow-[0_40px_100px_rgba(36,94,234,0.22)] transition-all duration-300">
           <!-- FORM: posts to Formspree -->
-          <form action="https://formspree.io/f/mblnzwpv" method="POST" class="space-y-4 text-sm">
+<form action="https://formspree.io/f/mdadzbbz" method="POST" class="space-y-4 text-sm">
+  
+  <!-- FORM ROW: Name + Phone -->
+  <div class="grid md:grid-cols-2 gap-4">
+    <label class="block text-slate-700 font-medium">
+      Name
+      <input type="text" name="name" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+    </label>
 
-            <!-- FORM ROW: Name + Phone -->
-            <div class="grid md:grid-cols-2 gap-4">
-              <label class="block text-slate-700 font-medium">
-                Name
-                <input type="text" name="name" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
-              </label>
+    <label class="block text-slate-700 font-medium">
+      Phone
+      <input type="tel" name="phone" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+    </label>
+  </div>
 
-              <label class="block text-slate-700 font-medium">
-                Phone
-                <input type="tel" name="phone" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
-              </label>
-            </div>
+  <!-- FORM FIELD: Email -->
+  <label class="block text-slate-700 font-medium">
+    Email
+    <input type="email" name="email" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+  </label>
 
-            <!-- FORM FIELD: Email -->
-            <label class="block text-slate-700 font-medium">
-              Email
-              <input type="email" name="email" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
-            </label>
+  <!-- FORM FIELD: Postcode -->
+  <label class="block text-slate-700 font-medium">
+    Postcode
+    <input type="text" name="postcode" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+  </label>
 
-            <!-- FORM FIELD: Postcode -->
-            <label class="block text-slate-700 font-medium">
-              Postcode
-              <input type="text" name="postcode" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
-            </label>
+  <!-- FORM FIELD: Service dropdown -->
+  <label class="block text-slate-700 font-medium">
+    Service needed
+    <select name="service" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
+      <option value="">Please select</option>
+      <option>Chicken sheds and agricultural builds</option>
+      <option>Steel erection and frames</option>
+      <option>Concrete bases and slabs</option>
+      <option>House extensions and conservatories</option>
+      <option>House builds and renovations</option>
+      <option>Plastering and finishing</option>
+      <option>Electrical work</option>
+      <option>Groundworks and drainage</option>
+      <option>Bricklaying and general building</option>
+      <option>Other</option>
+    </select>
+  </label>
 
-            <!-- FORM FIELD: Service dropdown -->
-            <label class="block text-slate-700 font-medium">
-              Service needed
-              <select name="service" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required>
-                <option value="">Please select</option>
-                <option>Chicken sheds and agricultural builds</option>
-                <option>Steel erection and frames</option>
-                <option>Concrete bases and slabs</option>
-                <option>House extensions and conservatories</option>
-                <option>House builds and renovations</option>
-                <option>Plastering and finishing</option>
-                <option>Electrical work</option>
-                <option>Groundworks and drainage</option>
-                <option>Bricklaying and general building</option>
-                <option>Other</option>
-              </select>
-            </label>
+  <!-- FORM FIELD: Message textarea -->
+  <label class="block text-slate-700 font-medium">
+    What needs doing
+    <textarea name="message" rows="5" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required></textarea>
+  </label>
 
-            <!-- FORM FIELD: Message textarea -->
-            <label class="block text-slate-700 font-medium">
-              What needs doing
-              <textarea name="message" rows="5" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required></textarea>
-            </label>
+  <!-- FORM SUBMIT BUTTON -->
+  <button type="submit" class="w-full rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-3 font-semibold shadow-soft text-base">
+    Send request
+  </button>
 
-            <!-- FORM SUBMIT BUTTON -->
-            <button type="submit" class="w-full rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-3 font-semibold shadow-soft text-base">
-              Send request
-            </button>
+  <!-- FORM DISCLAIMER -->
+  <p class="text-xs text-slate-500 text-center">
+    Your details are only used to respond to your enquiry.
+  </p>
 
-            <!-- FORM DISCLAIMER -->
-            <p class="text-xs text-slate-500 text-center">
-              Your details are only used to respond to your enquiry.
-            </p>
-
-            <!-- EMAIL SUBJECT LINE FOR FORMSPREE -->
-            <input type="hidden" name="_subject" value="New building enquiry">
-          </form>
-        </div>
-      </div>
-    </section>
+  <!-- HIDDEN: Thank You Redirect -->
+  <input type="hidden" name="_next" value="https://apex-referbs.github.io/Apex-Referbs/thanks.html">
+  
+  <!-- HIDDEN: Email Subject -->
+  <input type="hidden" name="_subject" value="New building enquiry">
+</form>
 
     <!-- FOOTER: site footer -->
     <footer class="py-10 bg-slate-900 text-slate-300 text-sm">
@@ -727,6 +727,7 @@
   </script>
 </body>
 </html>
+
 
 
 
