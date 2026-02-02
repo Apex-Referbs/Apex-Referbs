@@ -154,14 +154,14 @@
     }
 
     /* HERO MOBILE: shorter height + reposition to show both men */
-    @media (max-width: 968px){
-      .hero-image{ height: 220px !important; border-radius:16px; }
-      .hero-image img{
-        transform: scale(1.12) !important;
-        transform-origin: 50% 40% !important;
-        object-position: 70% 10% !important;
-      }
-    }
+@media (max-width: 968px){
+  .hero-image{ height: 220px !important; border-radius:16px; }
+  .hero-image img{
+    object-position: 50% 20%;
+    transform: scale(1.05) !important;
+    transform-origin: center;
+  }
+}
 
     /* SERVICES GRID: layout rules */
     #services .svc-grid{ display:grid; gap:24px; }
@@ -728,6 +728,7 @@
   </script>
 </body>
 </html>
+
 
 
 
