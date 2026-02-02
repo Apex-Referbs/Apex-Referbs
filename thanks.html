@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apex Refurbs | Thank you</title>
+  <meta name="description" content="Thanks for your enquiry. We’ll be in touch shortly." />
+
+  <!-- Optional: stops search engines indexing the thank you page -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: { 50:"#f3f7ff", 100:"#e6efff", 600:"#245eea", 700:"#1e4fc4" } },
+          boxShadow: { soft:"0 12px 30px rgba(15,23,42,0.10)", card:"0 18px 55px rgba(15,23,42,0.10)" }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    html, body{ overflow-x:hidden; min-height:100%; }
+
+    html, body{
+      background:
+        radial-gradient(1100px 700px at 18% 0%, rgba(56,189,248,0.24), transparent 62%),
+        radial-gradient(900px 650px at 92% 18%, rgba(59,130,246,0.20), transparent 60%),
+        radial-gradient(900px 650px at 55% 105%, rgba(99,102,241,0.18), transparent 58%),
+        linear-gradient(180deg, #f2f8ff 0%, #ffffff 55%, #f3f9ff 100%);
+      background-attachment: fixed;
+    }
+
+    .apex-bg-layer{ position: fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+    .apex-bg-layer .orb{
+      position:absolute; width:560px; height:560px; border-radius:9999px;
+      filter: blur(80px); opacity:.22; mix-blend-mode:multiply;
+      animation: apexFloat 18s ease-in-out infinite;
+    }
+    .apex-bg-layer .orb.one{ left:-220px; top:-240px; background: rgba(56,189,248,1); }
+    .apex-bg-layer .orb.two{ right:-260px; top:120px; background: rgba(59,130,246,1); animation-duration: 22s; }
+    .apex-bg-layer .orb.three{ left:38%; bottom:-320px; background: rgba(99,102,241,1); animation-duration: 26s; }
+
+    @keyframes apexFloat{
+      0%,100%{ transform: translate3d(0,0,0) scale(1); }
+      50%{ transform: translate3d(70px,-45px,0) scale(1.08); }
+    }
+
+    header, main, footer{ position:relative; z-index:2; }
+  </style>
+
+  <!-- Google Ads conversion tag goes here (recommended on thank you page only)
+  <script>
+    gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXX/XXXXXXX' });
+  </script>
+  -->
+</head>
+
+<body class="text-slate-800">
+  <div class="apex-bg-layer" aria-hidden="true">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+  </div>
+
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <img
+          src="https://github.com/Apex-Referbs/Apex-Referbs/blob/main/assets/img/ChatGPT%20Image%20Feb%201,%202026,%2011_19_34%20PM.png?raw=true"
+          alt="Apex Refurbs logo"
+          class="h-9 w-auto"
+        />
+        <div class="leading-tight">
+          <div class="font-extrabold text-slate-900">Apex Refurbs</div>
+          <div class="hidden md:block text-xs text-slate-500">Building, steelwork, agricultural and groundworks</div>
+        </div>
+      </div>
+
+      <a href="index.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm font-semibold hover:bg-slate-50">
+        Back to site
+      </a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+    <section class="py-20">
+      <div class="mx-auto max-w-3xl px-4 text-center">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-600 text-white shadow-soft">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+
+        <h1 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+          Thanks, we’ve got it
+        </h1>
+
+        <p class="mt-4 text-lg text-slate-600">
+          We’ll get back to you as soon as possible with a clear price and availability.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="index.html#services" class="inline-flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 px-7 py-4 text-white font-semibold shadow-soft transition">
+            View services
+          </a>
+          <a href="index.html#quote" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-4 text-slate-900 font-semibold hover:bg-slate-50 transition">
+            Send another request
+          </a>
+        </div>
+
+        <p class="mt-8 text-sm text-slate-500">
+          If it’s urgent, call <a href="tel:01743623392" class="font-semibold text-slate-900">01743 623392</a>
+        </p>
+      </div>
+    </section>
+
+    <footer class="py-10 text-center text-xs text-slate-500">
+      © <span id="year"></span> Apex Refurbs. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
