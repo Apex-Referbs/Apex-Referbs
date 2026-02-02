@@ -699,7 +699,7 @@
 </form>
 
     <!-- FOOTER: site footer -->
-    <footer class="py-10 bg-slate-900 text-slate-300 text-sm">
+    <footer class="py-6 bg-slate-900 text-slate-300 text-sm">
       <div class="mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between gap-3">
         <div>
           <div class="font-semibold text-white">Apex Refurbs</div>
@@ -728,6 +728,19 @@
   </script>
 </body>
 </html>
+
+          /* FIX: footer spacing on mobile */
+footer{
+  margin-top: 32px;
+}
+
+@media (max-width: 640px){
+  footer{
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
 
 
 
