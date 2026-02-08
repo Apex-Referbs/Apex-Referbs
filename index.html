@@ -12,15 +12,51 @@
   <!-- META DESCRIPTION: Search snippet description -->
   <meta name="description" content="House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural chicken sheds. Professional workmanship, tidy sites, clear quotes.">
 
-  <!-- Force top on load (fixes “opens at bottom” on mobile) -->
+  <!-- Fix: prevent any initial jump caused by focus/hash/odd browser behaviour -->
+  <style>
+    html { scroll-behavior: auto !important; }
+    body { opacity: 0; }
+    body.apex-ready { opacity: 1; }
+  </style>
+
   <script>
     (function () {
-      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
-      window.addEventListener("load", function () {
+      // Prevent the browser from restoring scroll/focus state in odd ways
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+      // If there's a hash, remove it so the browser can't jump to an anchor
+      if (location.hash) {
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+
+      function forceTopAndDefocus() {
+        // Defocus anything that might auto-focus (autofill can do this)
+        try {
+          if (document.activeElement && document.activeElement !== document.body) {
+            document.activeElement.blur();
+          }
+        } catch (e) {}
+
+        // Force top (do it a few times to beat late layout/focus moves)
         window.scrollTo(0, 0);
-      }, { once: true });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
+        requestAnimationFrame(function () {
+          window.scrollTo(0, 0);
+          requestAnimationFrame(function () {
+            window.scrollTo(0, 0);
+            document.body.classList.add("apex-ready");
+          });
+        });
+      }
+
+      // Run as early as possible
+      document.addEventListener("DOMContentLoaded", forceTopAndDefocus, { once: true });
+
+      // Covers back/forward cache and some mobile reload quirks
       window.addEventListener("pageshow", function () {
-        window.scrollTo(0, 0);
+        forceTopAndDefocus();
       });
     })();
   </script>
@@ -557,7 +593,7 @@
       </div>
     </section>
 
-    <!-- SECTION: MEET GREG (FIXED MARKUP) -->
+    <!-- SECTION: MEET GREG -->
     <section id="about-greg" class="py-16">
       <div class="mx-auto max-w-5xl px-4">
         <div class="px-11 py-12 md:px-10 md:py-14 text-center bg-white/80 rounded-[32px] border border-slate-200 shadow-[0_30px_80px_rgba(36,94,234,0.10)] mx-auto">
@@ -589,7 +625,7 @@
       </div>
     </section>
 
-    <!-- SECTION: QUOTE FORM (FIXED CLOSING TAGS) -->
+    <!-- SECTION: QUOTE FORM -->
     <section id="quote" class="py-14 bg-slate-50">
       <div class="mx-auto max-w-4xl px-4 text-center">
         <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight">Get a quote</h2>
@@ -658,7 +694,7 @@
       </div>
     </section>
 
-    <!-- FOOTER: site footer -->
+    <!-- FOOTER -->
     <footer class="py-6 bg-slate-900 text-slate-300 text-sm">
       <div class="mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between gap-3">
         <div>
@@ -671,7 +707,7 @@
 
   </main>
 
-  <!-- SCRIPTS: small page behaviour -->
+  <!-- SCRIPTS -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
