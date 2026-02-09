@@ -1,21 +1,10 @@
-Here’s your full file, fixed properly for iPhone Safari.
-
-What I changed (inside the code):
-
-1. Removed the hide page with opacity trick (that can cause weird flashes)
-2. Stopped using background attachment fixed on iOS Safari (this is a big cause of the jump)
-3. Added a clean “always start at top” script that runs on load and pageshow without doing the mad multi scroll loop
-
-Copy paste this whole thing as your index.html.
-
-```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Apex Refurbs | Building, Agricultural, Steelwork & Groundworks</title>
-  <meta name="description" content="House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural chicken sheds. Professional workmanship, tidy sites, clear quotes.">
+  <meta name="description" content="House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural builds. Professional workmanship, tidy sites, clear quotes.">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17072644239"></script>
@@ -31,8 +20,13 @@ Copy paste this whole thing as your index.html.
     tailwind.config = {
       theme: {
         extend: {
-          colors: { brand: { 50:"#f3f7ff", 100:"#e6efff", 600:"#245eea", 700:"#1e4fc4" } },
-          boxShadow: { soft:"0 12px 30px rgba(15,23,42,0.10)", card:"0 18px 55px rgba(15,23,42,0.10)" }
+          colors: {
+            brand: { 50:"#f3f7ff", 100:"#e6efff", 600:"#245eea", 700:"#1e4fc4" }
+          },
+          boxShadow: {
+            soft:"0 12px 30px rgba(15,23,42,0.10)",
+            card:"0 18px 55px rgba(15,23,42,0.12)"
+          }
         }
       }
     }
@@ -40,27 +34,25 @@ Copy paste this whole thing as your index.html.
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
-    html, body{ overflow-x:hidden; min-height:100%; }
+    html, body { overflow-x:hidden; min-height:100%; background:#ffffff; }
 
-    html, body{
+    /* Background lives on a fixed layer (not html/body) to avoid iOS Safari jump */
+    .apex-bg-layer{
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
       background:
         radial-gradient(1100px 700px at 18% 0%, rgba(56,189,248,0.24), transparent 62%),
         radial-gradient(900px 650px at 92% 18%, rgba(59,130,246,0.20), transparent 60%),
         radial-gradient(900px 650px at 55% 105%, rgba(99,102,241,0.18), transparent 58%),
         linear-gradient(180deg, #f2f8ff 0%, #ffffff 55%, #f3f9ff 100%);
-      background-attachment: fixed;
     }
-
-    /* iOS Safari fix: background-attachment fixed causes the jump */
-    @supports (-webkit-touch-callout: none) {
-      html, body { background-attachment: scroll; }
-    }
-
-    .apex-bg-layer{ position: fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
     .apex-bg-layer .orb{
       position:absolute; width:560px; height:560px; border-radius:9999px;
       filter: blur(80px); opacity:.22; mix-blend-mode:multiply;
@@ -69,64 +61,50 @@ Copy paste this whole thing as your index.html.
     .apex-bg-layer .orb.one{ left:-220px; top:-240px; background: rgba(56,189,248,1); }
     .apex-bg-layer .orb.two{ right:-260px; top:120px; background: rgba(59,130,246,1); animation-duration: 22s; }
     .apex-bg-layer .orb.three{ left:38%; bottom:-320px; background: rgba(99,102,241,1); animation-duration: 26s; }
-
     @keyframes apexFloat{
       0%,100%{ transform: translate3d(0,0,0) scale(1); }
       50%{ transform: translate3d(70px,-45px,0) scale(1.08); }
     }
 
-    header, main, footer, #apex-float-contact{ position:relative; z-index:2; }
+    header, main, footer, #apex-float-contact { position:relative; z-index:2; }
 
     #apex-float-contact{
       position: fixed !important;
       right: 16px !important;
-      left: auto !important;
-      top: auto !important;
       bottom: 16px !important;
       z-index: 9999 !important;
-      width: auto !important;
       display: flex !important;
       flex-direction: column !important;
       gap: 10px !important;
       align-items: flex-end !important;
     }
-
     #apex-float-contact a{
-      width: auto !important;
       display:flex !important;
       align-items:center !important;
       justify-content:center !important;
       height:46px !important;
-      padding:0 14px !important;
+      width:56px !important;
       border-radius:14px !important;
-      font-weight:900 !important;
       text-decoration:none !important;
       border:1px solid rgba(15,23,42,.12) !important;
       box-shadow:0 14px 32px rgba(2,6,23,.14) !important;
       background:rgba(255,255,255,.92) !important;
       color:#0f172a !important;
-      max-width: 60px !important;
     }
-
     #apex-float-contact .wa{
       background:#22c55e !important;
       color:#fff !important;
       border-color: rgba(34,197,94,.40) !important;
     }
 
-    @media (min-width: 900px){
-      #apex-float-contact{ right:15px !important; bottom:22px !important; }
-    }
-
     .hero-image{
-      width: 100%;
-      overflow: hidden;
-      border-radius: 18px;
-      border: 1px solid rgba(15,23,42,.08);
-      box-shadow: 0 14px 38px rgba(2,6,23,.10);
+      width:100%;
+      overflow:hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(15,23,42,.10);
+      box-shadow: 0 18px 55px rgba(2,6,23,.12);
       background: #eaf2fb;
     }
-
     .hero-image img{
       width:100%;
       height:100%;
@@ -137,7 +115,6 @@ Copy paste this whole thing as your index.html.
     }
 
     .hero-bleed{ width:100%; }
-
     @media (min-width: 969px){
       .hero-bleed{
         width:100vw;
@@ -145,125 +122,96 @@ Copy paste this whole thing as your index.html.
         padding-left:24px;
         padding-right:24px;
       }
-      .hero-bleed-inner{
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-      .hero-image{ height: 640px; }
+      .hero-bleed-inner{ max-width: 1400px; margin:0 auto; }
+      .hero-image{ height: 660px; }
       .hero-image img{ transform: scale(1.05) !important; object-position: 50% 42% !important; }
     }
-
     @media (max-width: 968px){
-      .hero-image{ height: 220px !important; border-radius:16px; }
-      .hero-image img{
-        object-position: 62% 20%;
-        transform: scale(1.05) !important;
-        transform-origin: center;
-      }
+      .hero-image{ height: 240px !important; border-radius:18px; }
+      .hero-image img{ object-position: 62% 22%; transform: scale(1.05) !important; }
     }
 
-    #services .svc-grid{ display:grid; gap:24px; }
-    @media (min-width:1024px){ #services .svc-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+    #services .svc-grid{ display:grid; gap:18px; }
+    @media (min-width: 768px){ #services .svc-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap:20px; } }
+    @media (min-width: 1024px){ #services .svc-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:22px; } }
 
-    #services .svc-card{
+    .svc-card{
       display:flex; flex-direction:column; border-radius:24px; overflow:hidden;
       border:1px solid rgba(15,23,42,.10);
       background: rgba(255,255,255,.92);
       box-shadow: 0 14px 38px rgba(2,6,23,.10);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-      min-height: 430px;
       text-decoration:none; color:#0f172a;
+      min-height: 420px;
     }
-    #services .svc-card:hover{
+    .svc-card:hover{
       transform: translateY(-3px);
       border-color: rgba(59,130,246,.28);
       box-shadow: 0 26px 64px rgba(2,6,23,.14);
     }
+    .svc-img{ width:100%; height:220px; object-fit:cover; object-position:center; display:block; }
+    .svc-body{ padding:16px 18px 18px; border-top:1px solid rgba(15,23,42,.08); flex:1; }
+    .svc-kicker{ font-size:12px; font-weight:800; letter-spacing:.10em; text-transform:uppercase; color: rgba(15,23,42,.55); }
+    .svc-title{ margin-top:8px; font-size:22px; line-height:1.15; font-weight:900; color:#0f172a; }
+    .svc-desc{ margin-top:10px; font-size:14px; line-height:1.6; color: rgba(15,23,42,.72); max-width:48ch; }
 
-    #services .svc-img{ width:100%; height:220px; object-fit:cover; object-position:center; display:block; }
+    #reviews .t-grid{ display:grid; gap:18px; margin-top:26px; }
+    @media (min-width:768px){ #reviews .t-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap:20px; } }
+    @media (min-width:1024px){ #reviews .t-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:22px; } }
 
-    #services .svc-body{
-      padding:16px 18px 18px;
-      background: rgba(255,255,255,.94);
-      border-top:1px solid rgba(15,23,42,.08);
-      flex:1; display:flex; flex-direction:column;
-    }
-    #services .svc-kicker{ font-size:12px; font-weight:700; letter-spacing:.10em; text-transform:uppercase; color: rgba(15,23,42,.55); }
-    #services .svc-title{ margin-top:8px; font-size:22px; line-height:1.15; font-weight:900; color:#0f172a; }
-    #services .svc-desc{ margin-top:10px; font-size:14px; line-height:1.6; color: rgba(15,23,42,.72); max-width:48ch; }
-
-    #gallery .t-grid{ display:grid; gap:18px; margin-top:26px; }
-    @media (min-width:768px){ #gallery .t-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap:20px; } }
-    @media (min-width:1024px){ #gallery .t-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:22px; } }
-
-    #gallery .t-card{
+    .t-card{
       border-radius:20px; border:1px solid rgba(15,23,42,.10);
       background: rgba(255,255,255,.92);
       box-shadow: 0 14px 38px rgba(2,6,23,.10);
       padding:22px;
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-    #gallery .t-card:hover{
+    .t-card:hover{
       transform: translateY(-3px);
       border-color: rgba(36,94,234,.22);
       box-shadow: 0 26px 64px rgba(2,6,23,.14);
     }
-
-    #gallery .t-top{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
-    #gallery .t-stars{ color:#d4af37; letter-spacing:2px; font-weight:900; font-size:14px; white-space:nowrap; }
-    #gallery .t-tag{
-      font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+    .t-top{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .t-stars{ color:#d4af37; letter-spacing:2px; font-weight:900; font-size:14px; white-space:nowrap; }
+    .t-tag{
+      font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase;
       color: rgba(15,23,42,.60);
       border:1px solid rgba(15,23,42,.10);
       background: rgba(255,255,255,.75);
       padding:6px 10px; border-radius:999px; white-space:nowrap;
     }
+    .t-quote{ margin-top:12px; font-size:15px; line-height:1.75; color: rgba(15,23,42,.78); }
+    .t-name{ margin-top:14px; font-weight:900; color:#0f172a; }
+    .t-meta{ margin-top:2px; font-size:13px; color: rgba(15,23,42,.55); }
 
-    #gallery .t-quote{ margin-top:12px; font-size:15px; line-height:1.75; color: rgba(15,23,42,.78); }
-    #gallery .t-name{ margin-top:14px; font-weight:900; color:#0f172a; }
-    #gallery .t-meta{ margin-top:2px; font-size:13px; color: rgba(15,23,42,.55); }
-
-    #gallery .t-actions{ margin-top:22px; display:flex; justify-content:center; }
-    #gallery .t-btn{
-      border:1px solid rgba(15,23,42,.12);
-      background: rgba(255,255,255,.92);
-      padding:12px 16px; border-radius:14px;
-      font-weight:900; color:#0f172a;
-    }
-    #gallery .t-btn:hover{ box-shadow:0 0 0 3px rgba(36,94,234,.18); border-color: rgba(36,94,234,.22); }
-
-    #about-greg .greg-portrait-wrap{
+    #about .portrait-wrap{
       width:420px; height:420px; border-radius:9999px;
-      border:10px solid #fff;
-      box-shadow:0 22px 60px rgba(2,6,23,.18);
-      overflow:hidden; margin:0 auto 18px auto;
-      background:#fff;
+      border:10px solid #fff; box-shadow:0 22px 60px rgba(2,6,23,.18);
+      overflow:hidden; margin:0 auto 18px auto; background:#fff;
     }
-
-    #about-greg .greg-portrait-bg{
+    #about .portrait-bg{
       width:100%; height:100%; border-radius:9999px;
       background-image:url("assets/img/greg.jpg");
       background-repeat:no-repeat;
       background-size:110%;
       background-position:20% 10%;
     }
-
     @media (max-width:640px){
-      #about-greg .greg-portrait-wrap{ width:320px; height:320px; }
+      #about .portrait-wrap{ width:320px; height:320px; }
     }
   </style>
 </head>
 
 <body class="text-slate-800">
-
   <div class="apex-bg-layer" aria-hidden="true">
     <div class="orb one"></div>
     <div class="orb two"></div>
     <div class="orb three"></div>
   </div>
 
-  <div id="apex-float-contact" class="apex-float" aria-label="Quick contact">
-    <a class="call" href="tel:01743623392" title="Call us" aria-label="Call">
+  <!-- Floating contact -->
+  <div id="apex-float-contact" aria-label="Quick contact">
+    <a class="call" href="tel:01743623392" title="Call" aria-label="Call">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2
                  19.86 19.86 0 0 1-8.63-3.07
@@ -280,7 +228,7 @@ Copy paste this whole thing as your index.html.
       </svg>
     </a>
 
-    <a class="wa" href="https://wa.me/447834555580" title="WhatsApp us" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <a class="wa" href="https://wa.me/447834555580" title="WhatsApp" target="_blank" rel="noopener" aria-label="WhatsApp">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" fill="currentColor">
         <path d="M19.11 17.26c-.29-.14-1.72-.85-1.99-.95
                  -.27-.1-.47-.14-.66.14
@@ -328,7 +276,7 @@ Copy paste this whole thing as your index.html.
 
       <div class="flex items-center gap-2">
         <a href="#services" class="hidden md:inline-flex text-sm text-slate-600 hover:text-slate-900">Services</a>
-        <a href="#gallery" class="hidden md:inline-flex text-sm text-slate-600 hover:text-slate-900">Gallery</a>
+        <a href="#reviews" class="hidden md:inline-flex text-sm text-slate-600 hover:text-slate-900">Reviews</a>
         <a href="#quote" class="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-soft">
           Get a quote
         </a>
@@ -338,18 +286,23 @@ Copy paste this whole thing as your index.html.
 
   <main class="pt-16">
 
+    <!-- HERO -->
     <section>
       <div class="pt-10 hero-bleed">
         <div class="hero-bleed-inner px-4 md:px-0">
           <div class="hero-image">
-            <img src="assets/img/apex-hero.jpg" alt="Apex Refurbs team" id="heroImg">
+            <img src="assets/img/apex-hero.jpg" alt="Apex Refurbs team">
           </div>
         </div>
       </div>
 
       <div class="mx-auto max-w-6xl px-4 py-14" id="hero">
         <div class="max-w-3xl">
-          <h1 class="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+          <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs font-extrabold text-slate-700">
+            Tidy sites • Clear quotes • Proper finish
+          </div>
+
+          <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
             Professional building work done properly
           </h1>
 
@@ -370,6 +323,30 @@ Copy paste this whole thing as your index.html.
       </div>
     </section>
 
+    <!-- KLARNA -->
+    <section class="py-4">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="rounded-3xl border border-slate-200 bg-white/90 backdrop-blur shadow-card p-6 md:p-8">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <div class="text-2xl md:text-3xl font-extrabold text-slate-900">Buy now, pay later</div>
+              <div class="mt-2 text-slate-600">
+                Spread the cost with Klarna. Quick, simple, and interest free. Terms apply.
+              </div>
+            </div>
+            <a href="#quote"
+               class="inline-flex items-center justify-center rounded-2xl px-6 py-4 font-extrabold text-white bg-slate-900 hover:bg-slate-800 shadow-soft">
+              Ask about Klarna
+            </a>
+          </div>
+          <div class="mt-4 text-xs text-slate-500">
+            Klarna is a buy now, pay later service. Terms apply.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
     <section id="services" class="py-20">
       <div class="mx-auto max-w-6xl px-4">
         <div class="flex items-end justify-between gap-6">
@@ -379,7 +356,7 @@ Copy paste this whole thing as your index.html.
               Quality workmanship, tidy sites, and clear timelines across domestic, commercial, and agricultural projects.
             </p>
           </div>
-          <a href="#quote" class="inline-flex items-center justify-center rounded-xl px-6 py-3 text-white font-semibold bg-brand-600 hover:bg-brand-700">
+          <a href="#quote" class="hidden md:inline-flex items-center justify-center rounded-xl px-6 py-3 text-white font-semibold bg-brand-600 hover:bg-brand-700">
             Get a quote
           </a>
         </div>
@@ -407,7 +384,7 @@ Copy paste this whole thing as your index.html.
             <img class="svc-img" src="assets/img/services/svc_electrician.jpg" alt="Electrical work">
             <div class="svc-body">
               <div class="svc-kicker">Electrical</div>
-              <div class="svc-title">Electrician</div>
+              <div class="svc-title">Electrical work</div>
               <div class="svc-desc">Safe, tidy installs and upgrades completed with care and clear communication.</div>
             </div>
           </a>
@@ -431,37 +408,10 @@ Copy paste this whole thing as your index.html.
           </a>
 
           <a href="#quote" class="svc-card">
-            <img class="svc-img" src="assets/img/services/svc_building.jpg" alt="House builds and general building">
-            <div class="svc-body">
-              <div class="svc-kicker">Building</div>
-              <div class="svc-title">House builds and general building</div>
-              <div class="svc-desc">Reliable structural and refurb work, delivered to a high standard.</div>
-            </div>
-          </a>
-
-          <a href="#quote" class="svc-card">
-            <img class="svc-img" src="assets/img/services/svc_kitchen.jpg" alt="Kitchen fitting and installation">
-            <div class="svc-body">
-              <div class="svc-kicker">Kitchens</div>
-              <div class="svc-title">Kitchen fitting and installation</div>
-              <div class="svc-desc">Full fitting and installation. Cabinets, worktops and finishing, done neatly and properly.</div>
-            </div>
-          </a>
-
-          <a href="#quote" class="svc-card">
-            <img class="svc-img" src="assets/img/services/svc_bathroom.jpg" alt="Bathroom fitting and tiling">
-            <div class="svc-body">
-              <div class="svc-kicker">Bathrooms</div>
-              <div class="svc-title">Bathroom fitting and tiling</div>
-              <div class="svc-desc">Full bathroom fitting with professional tiling and a clean, watertight finish.</div>
-            </div>
-          </a>
-
-          <a href="#quote" class="svc-card">
             <img class="svc-img" src="assets/img/services/svc_steel_agri.jpg" alt="Steel erection and agricultural sheds">
             <div class="svc-body">
-              <div class="svc-kicker">Steel and Agricultural</div>
-              <div class="svc-title">Steel erection and agricultural sheds</div>
+              <div class="svc-kicker">Steel and agricultural</div>
+              <div class="svc-title">Steel erection and agricultural builds</div>
               <div class="svc-desc">Frames, fixings and farm buildings installed safely, accurately and on schedule.</div>
             </div>
           </a>
@@ -469,89 +419,52 @@ Copy paste this whole thing as your index.html.
       </div>
     </section>
 
-    <section id="gallery" class="py-16">
+    <!-- REVIEWS -->
+    <section id="reviews" class="py-16">
       <div class="mx-auto max-w-6xl px-4">
         <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">What customers say</h2>
         <p class="mt-3 text-base md:text-lg text-slate-600 max-w-3xl">
           We keep it simple. Turn up on time, keep the site tidy, communicate clearly, and deliver a proper finish.
-          Here are a few recent comments from customers.
         </p>
 
-        <div class="t-grid" id="reviewsGrid">
+        <div class="t-grid">
           <div class="t-card">
             <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Extensions</div></div>
             <div class="t-quote">Clear quote, turned up when promised, and the finish is spot on. Site was kept tidy every day.</div>
             <div class="t-name">Sarah J</div><div class="t-meta">House extension</div>
           </div>
-
           <div class="t-card">
             <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Plastering</div></div>
             <div class="t-quote">Walls are perfectly smooth with sharp lines. Proper preparation and a very professional finish.</div>
             <div class="t-name">Helen R</div><div class="t-meta">Plastering and finishing</div>
           </div>
-
-          <div class="t-card">
-            <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Building</div></div>
-            <div class="t-quote">Reliable and organised. Kept us updated throughout and delivered exactly what was agreed.</div>
-            <div class="t-name">James W</div><div class="t-meta">General building</div>
-          </div>
-
-          <div class="t-card">
-            <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Groundworks</div></div>
-            <div class="t-quote">Neat, efficient work with good communication. Everything left clean and the job was finished properly.</div>
-            <div class="t-name">Mark T</div><div class="t-meta">Groundworks and drainage</div>
-          </div>
-
-          <div class="t-card">
-            <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Concrete</div></div>
-            <div class="t-quote">Solid base work and a clean finish. Turned up on time and cracked on without any fuss.</div>
-            <div class="t-name">Luke D</div><div class="t-meta">Bases and slabs</div>
-          </div>
-
           <div class="t-card">
             <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Steelwork</div></div>
             <div class="t-quote">Professional approach on site and safety was taken seriously. Frame went up cleanly and on schedule.</div>
             <div class="t-name">Tom S</div><div class="t-meta">Steel erection</div>
           </div>
-
-          <div class="t-card">
-            <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Roofing</div></div>
-            <div class="t-quote">Roof repairs were sorted quickly and properly. Everything left neat and watertight.</div>
-            <div class="t-name">Paul M</div><div class="t-meta">Roofing and repairs</div>
-          </div>
-
-          <div class="t-card">
-            <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Electrical</div></div>
-            <div class="t-quote">Tidy installs and explained everything clearly. Works were completed neatly and tested properly.</div>
-            <div class="t-name">Emma L</div><div class="t-meta">Electrical work</div>
-          </div>
-
-          <div class="t-card">
-            <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Kitchens</div></div>
-            <div class="t-quote">Kitchen fitting was done to a high standard with great attention to detail. Looks brilliant.</div>
-            <div class="t-name">Donna P</div><div class="t-meta">Kitchen fitting</div>
-          </div>
         </div>
 
-        <div class="t-actions">
-          <button type="button" class="t-btn" id="loadMoreReviews">
-            Get a free no obligation quote or ask us a question
-          </button>
+        <div class="mt-8 flex justify-center">
+          <a href="#quote" class="inline-flex items-center justify-center rounded-xl px-7 py-4 text-white font-extrabold bg-brand-600 hover:bg-brand-700 shadow-soft">
+            Get a free quote or ask a question
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="about-greg" class="py-16">
+    <!-- ABOUT -->
+    <section id="about" class="py-16">
       <div class="mx-auto max-w-5xl px-4">
-        <div class="px-11 py-12 md:px-10 md:py-14 text-center bg-white/80 rounded-[32px] border border-slate-200 shadow-[0_30px_80px_rgba(36,94,234,0.10)] mx-auto">
+        <div class="px-8 py-12 md:px-10 md:py-14 text-center bg-white/80 rounded-[32px] border border-slate-200 shadow-[0_30px_80px_rgba(36,94,234,0.10)] mx-auto">
           <div class="flex justify-center">
-            <div class="greg-portrait-wrap">
-              <div class="greg-portrait-bg" role="img" aria-label="Greg"></div>
+            <div class="portrait-wrap">
+              <div class="portrait-bg" role="img" aria-label="Greg"></div>
             </div>
           </div>
 
-          <div class="mt-7 text-xs font-extrabold uppercase text-slate-500">
-            <div style="font-weight:900; letter-spacing:.22em;">MEET GREG</div>
+          <div class="mt-6 text-xs font-extrabold uppercase text-slate-500" style="letter-spacing:.22em;">
+            MEET GREG
           </div>
 
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
@@ -563,7 +476,7 @@ Copy paste this whole thing as your index.html.
             Clear communication, tidy sites, and work finished properly.
           </p>
 
-          <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
+          <div class="mt-9 flex justify-center">
             <a href="tel:01743623392" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 font-extrabold px-7 py-3">
               Call 01743 623392
             </a>
@@ -572,6 +485,7 @@ Copy paste this whole thing as your index.html.
       </div>
     </section>
 
+    <!-- QUOTE -->
     <section id="quote" class="py-14 bg-slate-50">
       <div class="mx-auto max-w-4xl px-4 text-center">
         <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight">Get a quote</h2>
@@ -579,8 +493,11 @@ Copy paste this whole thing as your index.html.
           Tell us what you need and we will come back with a clear price and availability.
         </p>
 
-        <div class="mt-12 bg-white rounded-[32px] border border-slate-200 p-10 text-left shadow-[0_30px_80px_rgba(36,94,234,0.18)] hover:shadow-[0_40px_100px_rgba(36,94,234,0.22)] transition-all duration-300">
-          <form action="https://formspree.io/f/mdadzbbz" method="POST" class="space-y-4 text-sm">
+        <div class="mt-12 bg-white rounded-[32px] border border-slate-200 p-8 md:p-10 text-left shadow-[0_30px_80px_rgba(36,94,234,0.18)] transition-all duration-300">
+          <form id="quoteForm" class="space-y-4 text-sm" novalidate>
+            <!-- Honeypot -->
+            <input type="text" name="website" autocomplete="off" tabindex="-1" class="hidden" />
+
             <div class="grid md:grid-cols-2 gap-4">
               <label class="block text-slate-700 font-medium">
                 Name
@@ -625,17 +542,20 @@ Copy paste this whole thing as your index.html.
               <textarea name="message" rows="5" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-3 bg-white focus:ring-2 focus:ring-brand-600" required></textarea>
             </label>
 
-            <button type="submit" class="w-full rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-3 font-semibold shadow-soft text-base">
+            <button id="submitBtn" type="submit" class="w-full rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-3 font-semibold shadow-soft text-base">
               Send request
             </button>
+
+            <div id="formStatus" class="hidden rounded-2xl border p-4 text-sm"></div>
 
             <p class="text-xs text-slate-500 text-center">
               Your details are only used to respond to your enquiry.
             </p>
-
-            <input type="hidden" name="_next" value="https://apex-referbs.github.io/Apex-Referbs/thanks.html">
-            <input type="hidden" name="_subject" value="New building enquiry">
           </form>
+
+          <div class="mt-4 text-xs text-slate-500">
+            If you want to use Klarna, mention it in your message and we will confirm what options apply.
+          </div>
         </div>
       </div>
     </section>
@@ -655,31 +575,76 @@ Copy paste this whole thing as your index.html.
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    (function(){
-      const btn = document.getElementById('loadMoreReviews');
-      if(btn){
-        btn.addEventListener('click', function(){
-          const q = document.getElementById('quote');
-          if(q) q.scrollIntoView({behavior:'smooth', block:'start'});
-        });
-      }
-    })();
-
+    // iPhone Safari safe scroll behavior
     (function () {
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      function topNow(){ window.scrollTo(0,0); }
+      window.addEventListener("load", topNow, { once:true });
+      window.addEventListener("pageshow", function(e){ if(e.persisted) topNow(); });
+    })();
 
-      function startAtTop(){
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
+    // FORM: submits to Formspree via fetch so you always get a response + message on screen
+    (function(){
+      const ENDPOINT = "YOUR_FORMSPREE_ENDPOINT"; // مثال: https://formspree.io/f/xxxxxxx
+      const form = document.getElementById("quoteForm");
+      const btn = document.getElementById("submitBtn");
+      const status = document.getElementById("formStatus");
+
+      function showStatus(ok, msg){
+        status.classList.remove("hidden");
+        status.className = "rounded-2xl border p-4 text-sm " + (ok ? "border-emerald-200 bg-emerald-50 text-emerald-900" : "border-rose-200 bg-rose-50 text-rose-900");
+        status.textContent = msg;
       }
 
-      window.addEventListener("load", startAtTop, { once: true });
-      window.addEventListener("pageshow", startAtTop);
+      form.addEventListener("submit", async function(e){
+        e.preventDefault();
+
+        // basic validation
+        if(!form.checkValidity()){
+          showStatus(false, "Please fill in all required fields.");
+          return;
+        }
+
+        // bot trap
+        const honey = form.querySelector('input[name="website"]');
+        if(honey && honey.value.trim() !== ""){
+          showStatus(true, "Thanks, we will be in touch.");
+          form.reset();
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+
+        try{
+          const formData = new FormData(form);
+          const res = await fetch(ENDPOINT, {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: formData
+          });
+
+          if(res.ok){
+            // Google Ads conversion fire on success
+            try{
+              gtag('event', 'conversion', { 'send_to': 'AW-17072644239/YOUR_CONVERSION_LABEL' });
+            }catch(_){}
+
+            showStatus(true, "Sent. We have received your request and will reply as soon as possible.");
+            form.reset();
+          } else {
+            let data = null;
+            try{ data = await res.json(); }catch(_){}
+            showStatus(false, (data && data.error) ? data.error : "Something blocked the form sending. Check the Formspree endpoint.");
+          }
+        }catch(err){
+          showStatus(false, "No connection or blocked request. If you are using a privacy blocker, try again without it.");
+        }finally{
+          btn.disabled = false;
+          btn.textContent = "Send request";
+        }
+      });
     })();
   </script>
 </body>
 </html>
-```
-
-If it still does it after this, it will be one specific thing: iPhone Safari focusing an input because of autofill. If that happens, tell me if you see the keyboard flash or the cursor appear anywhere.
