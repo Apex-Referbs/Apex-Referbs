@@ -6,13 +6,13 @@
   <title>Apex Refurbs | Building, Agricultural, Steelwork & Groundworks</title>
   <meta name="description" content="House builds, extensions, plastering, electrics, concrete bases, steel erection and agricultural builds. Professional workmanship, tidy sites, clear quotes.">
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Ads tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17072644239"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17072644239');
+    gtag("js", new Date());
+    gtag("config", "AW-17072644239");
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,13 +20,8 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            brand: { 50:"#f3f7ff", 100:"#e6efff", 600:"#245eea", 700:"#1e4fc4" }
-          },
-          boxShadow: {
-            soft:"0 12px 30px rgba(15,23,42,0.10)",
-            card:"0 18px 55px rgba(15,23,42,0.12)"
-          }
+          colors: { brand: { 50:"#f3f7ff", 100:"#e6efff", 600:"#245eea", 700:"#1e4fc4" } },
+          boxShadow: { soft:"0 12px 30px rgba(15,23,42,0.10)", card:"0 18px 55px rgba(15,23,42,0.12)" }
         }
       }
     }
@@ -40,7 +35,7 @@
     body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
     html, body { overflow-x:hidden; min-height:100%; background:#ffffff; }
 
-    /* Background lives on a fixed layer (not html/body) to avoid iOS Safari jump */
+    /* Background is on a fixed layer (not html/body) to avoid iPhone Safari jump */
     .apex-bg-layer{
       position: fixed;
       inset: 0;
@@ -155,10 +150,6 @@
     .svc-title{ margin-top:8px; font-size:22px; line-height:1.15; font-weight:900; color:#0f172a; }
     .svc-desc{ margin-top:10px; font-size:14px; line-height:1.6; color: rgba(15,23,42,.72); max-width:48ch; }
 
-    #reviews .t-grid{ display:grid; gap:18px; margin-top:26px; }
-    @media (min-width:768px){ #reviews .t-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap:20px; } }
-    @media (min-width:1024px){ #reviews .t-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:22px; } }
-
     .t-card{
       border-radius:20px; border:1px solid rgba(15,23,42,.10);
       background: rgba(255,255,255,.92);
@@ -183,22 +174,6 @@
     .t-quote{ margin-top:12px; font-size:15px; line-height:1.75; color: rgba(15,23,42,.78); }
     .t-name{ margin-top:14px; font-weight:900; color:#0f172a; }
     .t-meta{ margin-top:2px; font-size:13px; color: rgba(15,23,42,.55); }
-
-    #about .portrait-wrap{
-      width:420px; height:420px; border-radius:9999px;
-      border:10px solid #fff; box-shadow:0 22px 60px rgba(2,6,23,.18);
-      overflow:hidden; margin:0 auto 18px auto; background:#fff;
-    }
-    #about .portrait-bg{
-      width:100%; height:100%; border-radius:9999px;
-      background-image:url("assets/img/greg.jpg");
-      background-repeat:no-repeat;
-      background-size:110%;
-      background-position:20% 10%;
-    }
-    @media (max-width:640px){
-      #about .portrait-wrap{ width:320px; height:320px; }
-    }
   </style>
 </head>
 
@@ -230,32 +205,8 @@
 
     <a class="wa" href="https://wa.me/447834555580" title="WhatsApp" target="_blank" rel="noopener" aria-label="WhatsApp">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" fill="currentColor">
-        <path d="M19.11 17.26c-.29-.14-1.72-.85-1.99-.95
-                 -.27-.1-.47-.14-.66.14
-                 -.19.29-.76.95-.93 1.14
-                 -.17.19-.34.21-.63.07
-                 -.29-.14-1.21-.44-2.31-1.41
-                 -.86-.76-1.44-1.7-1.61-1.99
-                 -.17-.29-.02-.45.13-.6
-                 .13-.13.29-.34.43-.51
-                 .14-.17.19-.29.29-.48
-                 .1-.19.05-.36-.02-.5
-                 -.07-.14-.66-1.59-.91-2.18
-                 -.24-.58-.48-.5-.66-.51h-.56
-                 c-.19 0-.5.07-.76.36
-                 -.26.29-.99.97-.99 2.37
-                 0 1.4 1.02 2.75 1.16 2.94
-                 .14.19 2.01 3.07 4.87 4.3
-                 .68.29 1.21.46 1.62.59
-                 .68.22 1.3.19 1.79.12
-                 .55-.08 1.72-.7 1.96-1.38
-                 .24-.68.24-1.26.17-1.38
-                 -.07-.12-.27-.19-.56-.33z"/>
-        <path d="M16 3C9.38 3 4 8.38 4 15
-                 c0 2.65.87 5.1 2.34 7.07L4 29l7.13-2.28
-                 A11.9 11.9 0 0 0 16 27
-                 c6.62 0 12-5.38 12-12
-                 S22.62 3 16 3z"/>
+        <path d="M19.11 17.26c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.66.14-.19.29-.76.95-.93 1.14-.17.19-.34.21-.63.07-.29-.14-1.21-.44-2.31-1.41-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.66-1.59-.91-2.18-.24-.58-.48-.5-.66-.51h-.56c-.19 0-.5.07-.76.36-.26.29-.99.97-.99 2.37 0 1.4 1.02 2.75 1.16 2.94.14.19 2.01 3.07 4.87 4.3.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.33z"/>
+        <path d="M16 3C9.38 3 4 8.38 4 15c0 2.65.87 5.1 2.34 7.07L4 29l7.13-2.28A11.9 11.9 0 0 0 16 27c6.62 0 12-5.38 12-12S22.62 3 16 3z"/>
       </svg>
     </a>
   </div>
@@ -276,7 +227,6 @@
 
       <div class="flex items-center gap-2">
         <a href="#services" class="hidden md:inline-flex text-sm text-slate-600 hover:text-slate-900">Services</a>
-        <a href="#reviews" class="hidden md:inline-flex text-sm text-slate-600 hover:text-slate-900">Reviews</a>
         <a href="#quote" class="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-soft">
           Get a quote
         </a>
@@ -288,15 +238,15 @@
 
     <!-- HERO -->
     <section>
-      <div class="pt-10 hero-bleed">
-        <div class="hero-bleed-inner px-4 md:px-0">
+      <div class="pt-10">
+        <div class="mx-auto max-w-6xl px-4">
           <div class="hero-image">
             <img src="assets/img/apex-hero.jpg" alt="Apex Refurbs team">
           </div>
         </div>
       </div>
 
-      <div class="mx-auto max-w-6xl px-4 py-14" id="hero">
+      <div class="mx-auto max-w-6xl px-4 py-12">
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs font-extrabold text-slate-700">
             Tidy sites • Clear quotes • Proper finish
@@ -311,43 +261,59 @@
             Clear communication and a finish you can be proud of.
           </p>
 
-          <div class="mt-8 flex flex-wrap gap-4">
+          <div class="mt-8 flex flex-wrap gap-3">
             <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 px-7 py-4 text-white font-semibold shadow-soft transition">
               Get a free quote
             </a>
-            <a href="#services" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-4 text-slate-900 font-semibold hover:bg-slate-50 transition">
-              View services
+
+            <!-- Visible Google button (replace the link below) -->
+            <a href="REPLACE_WITH_YOUR_GOOGLE_REVIEW_LINK"
+               target="_blank" rel="noopener"
+               class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-4 text-slate-900 font-extrabold hover:bg-slate-50 transition">
+              Google reviews
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- KLARNA -->
+    <!-- KLARNA (logo badge) -->
     <section class="py-4">
       <div class="mx-auto max-w-6xl px-4">
         <div class="rounded-3xl border border-slate-200 bg-white/90 backdrop-blur shadow-card p-6 md:p-8">
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <div class="text-2xl md:text-3xl font-extrabold text-slate-900">Buy now, pay later</div>
-              <div class="mt-2 text-slate-600">
-                Spread the cost with Klarna. Quick, simple, and interest free. Terms apply.
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            <div class="flex items-start gap-4">
+              <div class="shrink-0">
+                <!-- Official Klarna badge CDN -->
+                <img
+                  src="https://x.klarnacdn.net/payment-method/assets/badges/generic/klarna.svg"
+                  alt="Klarna"
+                  class="h-10 w-auto"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <div class="text-2xl md:text-3xl font-extrabold text-slate-900">Pay with Klarna</div>
+                <div class="mt-2 text-slate-600">
+                  Spread the cost. Ask us about Klarna options when you request your quote.
+                </div>
+                <div class="mt-3 text-xs text-slate-500">
+                  Klarna is a buy now pay later service. Terms apply.
+                </div>
               </div>
             </div>
+
             <a href="#quote"
                class="inline-flex items-center justify-center rounded-2xl px-6 py-4 font-extrabold text-white bg-slate-900 hover:bg-slate-800 shadow-soft">
               Ask about Klarna
             </a>
-          </div>
-          <div class="mt-4 text-xs text-slate-500">
-            Klarna is a buy now, pay later service. Terms apply.
           </div>
         </div>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="py-20">
+    <section id="services" class="py-16">
       <div class="mx-auto max-w-6xl px-4">
         <div class="flex items-end justify-between gap-6">
           <div>
@@ -361,9 +327,9 @@
           </a>
         </div>
 
-        <div class="mt-10 svc-grid">
+        <div class="mt-10 svc-grid" style="display:grid; gap:18px;">
           <a href="#quote" class="svc-card">
-            <img class="svc-img" src="assets/img/services/svc_groundworks.jpg" alt="Groundworks and outdoor works">
+            <img class="svc-img" src="assets/img/services/svc_groundworks.jpg" alt="Groundworks">
             <div class="svc-body">
               <div class="svc-kicker">Groundworks</div>
               <div class="svc-title">Groundworks and outdoor works</div>
@@ -372,7 +338,7 @@
           </a>
 
           <a href="#quote" class="svc-card">
-            <img class="svc-img" src="assets/img/services/svc_roofing.jpg" alt="Roofing and repairs">
+            <img class="svc-img" src="assets/img/services/svc_roofing.jpg" alt="Roofing">
             <div class="svc-body">
               <div class="svc-kicker">Roofing</div>
               <div class="svc-title">Roofing and repairs</div>
@@ -381,11 +347,20 @@
           </a>
 
           <a href="#quote" class="svc-card">
-            <img class="svc-img" src="assets/img/services/svc_electrician.jpg" alt="Electrical work">
+            <img class="svc-img" src="assets/img/services/svc_electrician.jpg" alt="Electrical">
             <div class="svc-body">
               <div class="svc-kicker">Electrical</div>
               <div class="svc-title">Electrical work</div>
               <div class="svc-desc">Safe, tidy installs and upgrades completed with care and clear communication.</div>
+            </div>
+          </a>
+
+          <a href="#quote" class="svc-card">
+            <img class="svc-img" src="assets/img/services/svc_plastering.jpg" alt="Plastering">
+            <div class="svc-body">
+              <div class="svc-kicker">Finishing</div>
+              <div class="svc-title">Plastering and finishing</div>
+              <div class="svc-desc">Smooth walls, sharp lines and proper prep for a professional finish.</div>
             </div>
           </a>
 
@@ -399,88 +374,13 @@
           </a>
 
           <a href="#quote" class="svc-card">
-            <img class="svc-img" src="assets/img/services/svc_plastering.jpg" alt="Plastering and finishing">
-            <div class="svc-body">
-              <div class="svc-kicker">Finishing</div>
-              <div class="svc-title">Plastering and finishing</div>
-              <div class="svc-desc">Smooth walls, sharp lines and proper prep for a professional finish.</div>
-            </div>
-          </a>
-
-          <a href="#quote" class="svc-card">
-            <img class="svc-img" src="assets/img/services/svc_steel_agri.jpg" alt="Steel erection and agricultural sheds">
+            <img class="svc-img" src="assets/img/services/svc_steel_agri.jpg" alt="Steel and agricultural">
             <div class="svc-body">
               <div class="svc-kicker">Steel and agricultural</div>
               <div class="svc-title">Steel erection and agricultural builds</div>
               <div class="svc-desc">Frames, fixings and farm buildings installed safely, accurately and on schedule.</div>
             </div>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section id="reviews" class="py-16">
-      <div class="mx-auto max-w-6xl px-4">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">What customers say</h2>
-        <p class="mt-3 text-base md:text-lg text-slate-600 max-w-3xl">
-          We keep it simple. Turn up on time, keep the site tidy, communicate clearly, and deliver a proper finish.
-        </p>
-
-        <div class="t-grid">
-          <div class="t-card">
-            <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Extensions</div></div>
-            <div class="t-quote">Clear quote, turned up when promised, and the finish is spot on. Site was kept tidy every day.</div>
-            <div class="t-name">Sarah J</div><div class="t-meta">House extension</div>
-          </div>
-          <div class="t-card">
-            <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Plastering</div></div>
-            <div class="t-quote">Walls are perfectly smooth with sharp lines. Proper preparation and a very professional finish.</div>
-            <div class="t-name">Helen R</div><div class="t-meta">Plastering and finishing</div>
-          </div>
-          <div class="t-card">
-            <div class="t-top"><div class="t-stars">★★★★★</div><div class="t-tag">Steelwork</div></div>
-            <div class="t-quote">Professional approach on site and safety was taken seriously. Frame went up cleanly and on schedule.</div>
-            <div class="t-name">Tom S</div><div class="t-meta">Steel erection</div>
-          </div>
-        </div>
-
-        <div class="mt-8 flex justify-center">
-          <a href="#quote" class="inline-flex items-center justify-center rounded-xl px-7 py-4 text-white font-extrabold bg-brand-600 hover:bg-brand-700 shadow-soft">
-            Get a free quote or ask a question
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="py-16">
-      <div class="mx-auto max-w-5xl px-4">
-        <div class="px-8 py-12 md:px-10 md:py-14 text-center bg-white/80 rounded-[32px] border border-slate-200 shadow-[0_30px_80px_rgba(36,94,234,0.10)] mx-auto">
-          <div class="flex justify-center">
-            <div class="portrait-wrap">
-              <div class="portrait-bg" role="img" aria-label="Greg"></div>
-            </div>
-          </div>
-
-          <div class="mt-6 text-xs font-extrabold uppercase text-slate-500" style="letter-spacing:.22em;">
-            MEET GREG
-          </div>
-
-          <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
-            The person you’ll be speaking to
-          </h2>
-
-          <p class="mt-4 text-slate-600 text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
-            Greg runs Apex Refurbs and oversees your job from the first chat and site visit through to completion.
-            Clear communication, tidy sites, and work finished properly.
-          </p>
-
-          <div class="mt-9 flex justify-center">
-            <a href="tel:01743623392" class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 font-extrabold px-7 py-3">
-              Call 01743 623392
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -493,7 +393,7 @@
           Tell us what you need and we will come back with a clear price and availability.
         </p>
 
-        <div class="mt-12 bg-white rounded-[32px] border border-slate-200 p-8 md:p-10 text-left shadow-[0_30px_80px_rgba(36,94,234,0.18)] transition-all duration-300">
+        <div class="mt-12 bg-white rounded-[32px] border border-slate-200 p-8 md:p-10 text-left shadow-[0_30px_80px_rgba(36,94,234,0.18)]">
           <form id="quoteForm" class="space-y-4 text-sm" novalidate>
             <!-- Honeypot -->
             <input type="text" name="website" autocomplete="off" tabindex="-1" class="hidden" />
@@ -552,10 +452,6 @@
               Your details are only used to respond to your enquiry.
             </p>
           </form>
-
-          <div class="mt-4 text-xs text-slate-500">
-            If you want to use Klarna, mention it in your message and we will confirm what options apply.
-          </div>
         </div>
       </div>
     </section>
@@ -583,12 +479,15 @@
       window.addEventListener("pageshow", function(e){ if(e.persisted) topNow(); });
     })();
 
-    // FORM: submits to Formspree via fetch so you always get a response + message on screen
+    // Formspree submit (your endpoint is already set)
     (function(){
-      const ENDPOINT = "YOUR_FORMSPREE_ENDPOINT"; // مثال: https://formspree.io/f/xxxxxxx
+      const ENDPOINT = "https://formspree.io/f/mblnzwpv";
       const form = document.getElementById("quoteForm");
       const btn = document.getElementById("submitBtn");
       const status = document.getElementById("formStatus");
+
+      // Optional: put your Google Ads conversion label here
+      const GOOGLE_CONVERSION_SEND_TO = "AW-17072644239/REPLACE_ME";
 
       function showStatus(ok, msg){
         status.classList.remove("hidden");
@@ -599,13 +498,11 @@
       form.addEventListener("submit", async function(e){
         e.preventDefault();
 
-        // basic validation
         if(!form.checkValidity()){
           showStatus(false, "Please fill in all required fields.");
           return;
         }
 
-        // bot trap
         const honey = form.querySelector('input[name="website"]');
         if(honey && honey.value.trim() !== ""){
           showStatus(true, "Thanks, we will be in touch.");
@@ -625,21 +522,21 @@
           });
 
           if(res.ok){
-            // Google Ads conversion fire on success
-            try{
-              gtag('event', 'conversion', { 'send_to': 'AW-17072644239/YOUR_CONVERSION_LABEL' });
-            }catch(_){}
+            // Fire conversion only on success and only if you’ve set the label
+            if(GOOGLE_CONVERSION_SEND_TO.indexOf("REPLACE_ME") === -1){
+              try { gtag("event", "conversion", { "send_to": GOOGLE_CONVERSION_SEND_TO }); } catch(_){}
+            }
 
             showStatus(true, "Sent. We have received your request and will reply as soon as possible.");
             form.reset();
           } else {
             let data = null;
             try{ data = await res.json(); }catch(_){}
-            showStatus(false, (data && data.error) ? data.error : "Something blocked the form sending. Check the Formspree endpoint.");
+            showStatus(false, (data && data.error) ? data.error : "Form not accepted. Check Formspree is active and the email is confirmed in Formspree.");
           }
-        }catch(err){
-          showStatus(false, "No connection or blocked request. If you are using a privacy blocker, try again without it.");
-        }finally{
+        } catch(err){
+          showStatus(false, "Blocked request or no connection. Try again without an ad blocker or privacy extension.");
+        } finally {
           btn.disabled = false;
           btn.textContent = "Send request";
         }
