@@ -1,14 +1,3 @@
-Here’s your full file, fixed properly for iPhone Safari.
-
-What I changed (inside the code):
-
-1. Removed the hide page with opacity trick (that can cause weird flashes)
-2. Stopped using background attachment fixed on iOS Safari (this is a big cause of the jump)
-3. Added a clean “always start at top” script that runs on load and pageshow without doing the mad multi scroll loop
-
-Copy paste this whole thing as your index.html.
-
-```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -683,3 +672,4 @@ Copy paste this whole thing as your index.html.
 ```
 
 If it still does it after this, it will be one specific thing: iPhone Safari focusing an input because of autofill. If that happens, tell me if you see the keyboard flash or the cursor appear anywhere.
+
