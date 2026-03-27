@@ -1,0 +1,16 @@
+- slug: carpet-cleaning
+  name: Carpet Cleaning
+  desc: Professional carpet cleaning in {town} for homes, rentals and business premises that need a proper deep clean.
+  page_intro: Deep carpet cleaning for homes, rentals and business premises with visible results.
+- slug: upholstery-cleaning
+  name: Upholstery Cleaning
+  desc: Professional upholstery cleaning in {town} for sofas, chairs and fabric furniture that needs freshening properly.
+  page_intro: Sofa and upholstery cleaning for tired fabric, everyday build up and dull looking furniture.
+- slug: stain-removal
+  name: Stain Removal Treatments
+  desc: Targeted stain removal treatments in {town} for carpets, rugs and upholstery that need more focused work.
+  page_intro: Targeted stain removal for carpets, rugs and upholstery where a standard clean is not enough.
+- slug: moth-treatment
+  name: Moth Treatment
+  desc: Carpet moth treatment advice and support in {town} where damage or activity is starting to show.
+  page_intro: Carpet moth treatment advice for rugs and carpets showing signs of damage or activity.
