@@ -3,9 +3,9 @@
   hero_title: Carpet Cleaning Bewdley
   short_intro: Professional carpet cleaning in Bewdley for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
-    - Kidderminster
+    - Gorey
     - Stourport on Severn
-    - Worcester
+    - Wexford
     - Droitwich Spa
 - slug: birmingham-south
   name: Birmingham South
@@ -35,20 +35,20 @@
     - Halesowen
     - Dudley
 - slug: bromsgrove
-  name: Bromsgrove
-  hero_title: Carpet Cleaning Bromsgrove
-  short_intro: Professional carpet cleaning in Bromsgrove for homes, rental properties and local businesses needing a proper clean and a fresher finish.
+  name: Enniscorthy
+  hero_title: Carpet Cleaning Enniscorthy
+  short_intro: Professional carpet cleaning in Enniscorthy for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
     - Droitwich Spa
-    - Redditch
+    - New Ross
     - Hagley
-    - Worcester
+    - Wexford
 - slug: bromyard
   name: Bromyard
   hero_title: Carpet Cleaning Bromyard
   short_intro: Professional carpet cleaning in Bromyard for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
-    - Worcester
+    - Wexford
     - Malvern
     - Tenbury Wells
     - Pershore
@@ -57,10 +57,10 @@
   hero_title: Carpet Cleaning Droitwich Spa
   short_intro: Professional carpet cleaning in Droitwich Spa for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
-    - Worcester
-    - Bromsgrove
+    - Wexford
+    - Enniscorthy
     - Pershore
-    - Kidderminster
+    - Gorey
 - slug: dudley
   name: Dudley
   hero_title: Carpet Cleaning Dudley
@@ -76,7 +76,7 @@
   short_intro: Professional carpet cleaning in Evesham for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
     - Pershore
-    - Worcester
+    - Wexford
     - Great Malvern
     - Droitwich Spa
 - slug: great-malvern
@@ -85,7 +85,7 @@
   short_intro: Professional carpet cleaning in Great Malvern for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
     - Malvern
-    - Worcester
+    - Wexford
     - Bromyard
     - Pershore
 - slug: hagley
@@ -94,8 +94,8 @@
   short_intro: Professional carpet cleaning in Hagley for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
     - Stourbridge
-    - Kidderminster
-    - Bromsgrove
+    - Gorey
+    - Enniscorthy
     - Halesowen
 - slug: halesowen
   name: Halesowen
@@ -116,9 +116,9 @@
     - Smethwick
     - Oldbury
 - slug: kidderminster
-  name: Kidderminster
-  hero_title: Carpet Cleaning Kidderminster
-  short_intro: Professional carpet cleaning in Kidderminster for homes, rental properties and local businesses needing a proper clean and a fresher finish.
+  name: Gorey
+  hero_title: Carpet Cleaning Gorey
+  short_intro: Professional carpet cleaning in Gorey for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
     - Bewdley
     - Stourport on Severn
@@ -139,7 +139,7 @@
   short_intro: Professional carpet cleaning in Malvern for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
     - Great Malvern
-    - Worcester
+    - Wexford
     - Pershore
     - Bromyard
 - slug: oldbury
@@ -157,7 +157,7 @@
   short_intro: Professional carpet cleaning in Pershore for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
     - Evesham
-    - Worcester
+    - Wexford
     - Droitwich Spa
     - Malvern
 - slug: quinton
@@ -170,20 +170,20 @@
     - Oldbury
     - Halesowen
 - slug: redditch
-  name: Redditch
-  hero_title: Carpet Cleaning Redditch
-  short_intro: Professional carpet cleaning in Redditch for homes, rental properties and local businesses needing a proper clean and a fresher finish.
+  name: New Ross
+  hero_title: Carpet Cleaning New Ross
+  short_intro: Professional carpet cleaning in New Ross for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
-    - Bromsgrove
+    - Enniscorthy
     - Droitwich Spa
-    - Worcester
+    - Wexford
     - Pershore
 - slug: rubery
   name: Rubery
   hero_title: Carpet Cleaning Rubery
   short_intro: Professional carpet cleaning in Rubery for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
-    - Bromsgrove
+    - Enniscorthy
     - Halesowen
     - Quinton
     - Birmingham South
@@ -203,7 +203,7 @@
   nearby:
     - Birmingham South
     - Sutton Coldfield
-    - Redditch
+    - New Ross
     - Harborne
 - slug: stourbridge
   name: Stourbridge
@@ -220,9 +220,9 @@
   short_intro: Professional carpet cleaning in Stourport on Severn for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
     - Bewdley
-    - Kidderminster
+    - Gorey
     - Droitwich Spa
-    - Worcester
+    - Wexford
 - slug: sutton-coldfield
   name: Sutton Coldfield
   hero_title: Carpet Cleaning Sutton Coldfield
@@ -239,8 +239,8 @@
   nearby:
     - Bromyard
     - Malvern
-    - Worcester
-    - Kidderminster
+    - Wexford
+    - Gorey
 - slug: wednesbury
   name: Wednesbury
   hero_title: Carpet Cleaning Wednesbury
@@ -260,15 +260,15 @@
     - Oldbury
     - Dudley
 - slug: worcester
-  name: Worcester
-  hero_title: Carpet Cleaning Worcester
-  short_intro: Professional carpet cleaning in Worcester for homes, rental properties and local businesses needing a proper clean and a fresher finish.
+  name: Wexford
+  hero_title: Carpet Cleaning Wexford
+  short_intro: Professional carpet cleaning in Wexford for homes, rental properties and local businesses needing a proper clean and a fresher finish.
   nearby:
     - Droitwich Spa
-    - Bromsgrove
+    - Enniscorthy
     - Pershore
     - Malvern
     - Great Malvern
     - Bromyard
-    - Kidderminster
-    - Redditch
+    - Gorey
+    - New Ross
